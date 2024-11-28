@@ -76,7 +76,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.keymap.set("n", "<leader>gac", function ()
     local commit_msg = vim.fn.input("message > ");
     if commit_msg ~= "" then
-        vim.cmd("silent !git add . && git commit -m \"" .. commit_msg .. "\"")
+        vim.cmd("!git add . && git commit -m \"" .. commit_msg .. "\"")
     else
         print("Commit aborted: No message provided.")
     end
