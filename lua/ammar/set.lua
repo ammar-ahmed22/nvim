@@ -89,4 +89,4 @@ vim.keymap.set("n", "<leader>gp", function ()
 
 end, { noremap = true, desc = "Git push"})
 
-
+vim.opt.textwidth = 80;
