@@ -95,7 +95,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     pattern = "*",
     callback = function()
         if vim.bo.modified then
-            vim.cmd("silent! write")
+            vim.cmd("write")
         end
     end
 })
