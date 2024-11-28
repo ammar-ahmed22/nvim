@@ -91,11 +91,22 @@ end, { noremap = true, desc = "Git push" })
 -- Width of the text before wrapping
 vim.opt.textwidth = 79;
 
-vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI"}, {
-    pattern = "*",
-    callback = function()
-        if vim.bo.modified then
-            vim.cmd("write")
-        end
+local function save_if_modified()
+    if vim.bo.modified then
+        vim.cmd("write")
     end
+end
+-- Autosave if file is modified in normal or visual mode 
+vim.api.nvim_create_autocmd("TextChanged", {
+    pattern = "*",
+    callback = save_if_modified
 })
+
+-- Autosave after insert mode is left (if the file is changed)
+vim.api.nvim_create_autocmd("InsertLeave", {
+    pattern = "*",
+    callback = save_if_modified
+})
+
+
+
