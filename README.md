@@ -70,6 +70,23 @@ Install plugins with:
 
 
 
+## Keymaps
+Tabulated below is the list of keymaps that I have impelemented and what they are used for.
 
+> [!NOTE]  
+> Anywhere you see `<leader>` that means to use a space (I have set the `leader` to be the space key)
+
+| **Keymap** | **Description** |
+| :--------- | :-------------- |
+| `<leader>h` | Return to Neovim start screen |
+| `<leader>ff` | Fuzzy find files in the current project, does not search `.gitignore`d files. |
+| `<leader>fw` | Search for a word in the files of the current project, does not search `.gitignored`d files. (Prompts you for the query) |
+| `<leader>gs` | Show git status information |
+| `<leader>gac` | Runs `git add . && git commit -m <MESSAGE>`. (Prompts you for the message) |
+| `<leader>gp` | Runs `git push` |
+| `gcc` | Toggles comments for the line |
+| `gc` | Toggles comments for the selection |
+| `gd` | Find and go to the defintionion of something in code (even if it is a different file) |
+| `K` | Hover for language server completion |
 
 
