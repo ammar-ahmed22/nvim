@@ -27,7 +27,7 @@ External requirements:
 ### Install the configuration
 Neovim's configuration's should be under the following paths based on your OS:
 | **OS** | **PATH** |
-| :===== | :======= |
+| :----- | :------- |
 | Linux, MacOS | $XDG_CONFIG_HOME/nvim, ~/.config/nvim | 
 | Windows (cmd) | %localappdata%\nvim\ | 
 | Windows (powershell) | $env:LOCALAPPDATA\nvim\ |
