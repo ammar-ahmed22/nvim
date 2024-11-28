@@ -12,13 +12,14 @@ return require('packer').startup(function(use)
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use({
-	'catppuccin/nvim',
-	as = "catppuccin",
-	config = function()
-		vim.cmd('colorscheme catppuccin-mocha')
-	end
-  })
+  use {
+      'Mofiqul/dracula.nvim',
+      as = "dracula",
+      config = function ()
+          require("dracula").setup()
+          vim.cmd('colorscheme dracula')
+      end
+  }
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
   use('tpope/vim-fugitive')
   use {
@@ -40,5 +41,18 @@ return require('packer').startup(function(use)
 		  {'L3MON4D3/LuaSnip'},
 		  {'rafamadriz/friendly-snippets'},
 	  }
+  }
+  use {
+      "windwp/nvim-autopairs",
+      event = "InsertEnter",
+      config = function()
+          require("nvim-autopairs").setup {}
+      end
+  }
+  use {
+      'numToStr/Comment.nvim',
+      config = function ()
+        require("Comment").setup()
+      end
   }
 end)
