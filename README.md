@@ -1,6 +1,6 @@
 # ammar.nvim
 ## Introduction
-This repository contains my personalized setup for Neovim. Inspired by ThePrimeagen and kickstart.nvim.
+This repository contains my personalized setup for Neovim. Inspired by [ThePrimeagen](https://www.youtube.com/watch?v=w7i4amO_zaE&t=1487s) and [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
 
 ## Features
 - **Lua**: Leverages the power of the Lua language for configuration
