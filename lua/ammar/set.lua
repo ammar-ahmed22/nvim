@@ -8,7 +8,7 @@ vim.g.have_nerd_font = true;
 vim.opt.mouse = "a";
 
 -- Sync Neovim and OS clipboard 
-vim.schedule(function() 
+vim.schedule(function()
     vim.opt.clipboard = "unnamedplus";
 end)
 
