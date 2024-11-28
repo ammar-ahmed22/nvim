@@ -83,3 +83,10 @@ vim.keymap.set("n", "<leader>gac", function ()
 end, { noremap = true, desc = "Git add and commit with message prompt"})
 
 
+-- Custom command for git push 
+vim.keymap.set("n", "<leader>gp", function ()
+    vim.cmd("!git push")
+
+end, { noremap = true, desc = "Git push"})
+
+
