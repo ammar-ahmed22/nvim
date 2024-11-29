@@ -90,8 +90,6 @@ vim.keymap.set("n", "<leader>gp", function()
     vim.cmd("!git push")
 end, { noremap = true, desc = "Git push" })
 
--- Width of the text before wrapping
-vim.opt.textwidth = 79;
 
 local function save_if_modified()
     if vim.bo.modified and vim.bo.buftype == "" and vim.bo.buftype ~= "TelescopePrompt" then
