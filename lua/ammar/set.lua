@@ -108,5 +108,12 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     callback = save_if_modified
 })
 
+vim.api.nvim_set_keymap("n", "<leader>run", ":lua RunCommand()<CR>", { noremap = true, silent = true})
 
+function RunCommand()
+    local command = vim.fn.input("run: ")
+    if command ~= "" then
+        vim.cmd("!" .. command)
+    end
+end
 
