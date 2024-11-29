@@ -78,13 +78,15 @@ Tabulated below is the list of keymaps that I have impelemented and what they ar
 
 | **Keymap** | **Description** |
 | :--------- | :-------------- |
-| `<leader>h` | Return to Neovim start screen |
-| `<leader>ff` | Fuzzy find files in the current project, does not search `.gitignore`d files. |
-| `<leader>fs` | Search for a word in the files of the current project, does not search `.gitignored`d files. (Prompts you for the query) |
-| `<leader>gs` | Show git status information |
-| `<leader>gac` | Runs `git add . && git commit -m <MESSAGE>`. (Prompts you for the message) |
-| `<leader>gp` | Runs `git push` |
-| `<leader>run` | Prompts user for command to run in the terminal (remap of `:!`) | 
+| `<Ctrl-h>` | Return to Neovim [H]ome screen |
+| `<Ctrl-f>` | Search for [F]iles in the current project, does not search `.gitignore`d files. |
+| `<leader>fs` | [S]earch for a word in the [F]iles of the current project, does not search `.gitignored`d files. (Prompts you for the query) |
+| `<leader>fg` | [S]earch for a `[G]rep` query in the files of the current project,
+does not search `.gitignore`d files. |
+| `<leader>gs` | Show [G]it [S]tatus information |
+| `<leader>gac` | Runs `[G]it [A]dd . && git [C]ommit -m <MESSAGE>`. (Prompts you for the message) |
+| `<leader>gp` | Runs `[G]it [P]ush` |
+| `<leader>run` | Prompts user for command to [RUN] in the terminal (remap of `:!`) | 
 | `gcc` | Toggles comments for the line |
 | `gc` | Toggles comments for the selection |
 | `gd` | Find and go to the defintionion of something in code (even if it is a different file) |
