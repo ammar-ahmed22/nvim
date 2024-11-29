@@ -92,7 +92,7 @@ end, { noremap = true, desc = "Git push" })
 vim.opt.textwidth = 79;
 
 local function save_if_modified()
-    if vim.bo.modified then
+    if vim.bo.modified and vim.bo.buftype == "" and vim.bo.buftype ~= "TelescopePrompt" then
         vim.cmd("write")
     end
 end
