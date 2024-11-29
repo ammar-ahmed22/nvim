@@ -74,7 +74,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Custom command for git add and commit
 vim.keymap.set("n", "<leader>gac", function()
-    local commit_msg = vim.fn.input("message > ");
+    local commit_msg = vim.fn.input("message: ");
     if commit_msg ~= "" then
         vim.cmd("!git add . && git commit -m \"" .. commit_msg .. "\"")
     else
