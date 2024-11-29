@@ -119,4 +119,3 @@ All the plugins I use and what they do/how I use them are listed below:
 | [Comment.nvim](https://github.com/numToStr/Comment.nvim) | Toggling lines and selections as comments. |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Signs in the gutter for git status (i.e. green bar for new additions, blue for changes, etc.) |
 
-
