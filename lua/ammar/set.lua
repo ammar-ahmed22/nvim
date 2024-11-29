@@ -106,16 +106,51 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     pattern = "*",
     callback = save_if_modified
 })
+-- Custom command functions for running stuff in the terminal 
 
--- Remap of :! command 
-vim.api.nvim_set_keymap("n", "<leader>run", ":lua RunCommand()<CR>", { noremap = true, silent = true})
-function RunCommand()
-    local command = vim.fn.input("run: ")
-    if command ~= "" then
-        vim.cmd("!" .. command)
+-- Used with :R/:Run 
+-- If no argument provided, tries to use saved command 
+function HandleRun(args)
+    -- No argument but there is saved command 
+    if args.args == "" and vim.g.run_command then
+        -- Confirm, maybe it was an accident? 
+        local confirm = vim.fn.confirm("Do you want to run `" .. vim.g.run_command .. "`?", "&Yes\n&No", 1)
+        if confirm == 1 then
+            vim.cmd("!" .. vim.g.run_command)
+        end
+        return
     end
+    -- Give preference to passed argument
+    local command = args.args ~= "" and args.args or vim.g.run_command
+    if command == nil or command == "" then
+        print("No command to run. Set command with :SetRun <CMD>.")
+        return 
+    end
+    vim.cmd("!" .. command)
 end
 
+-- Used with :SR/:SetRun 
+function HandleSetRun(args)
+    vim.g.run_command = args.args
+    print("Run command set to: `" .. args.args .. "`")
+end
+
+-- Used with :GR/GetRun 
+function HandleGetRun()
+   local cmd = vim.g.run_command
+   if cmd ~= nil then
+       print("Run command: `" .. cmd .. "`")
+   else
+       print("No command set. Set command with :SetRun <CMD>")
+   end
+end
+
+vim.api.nvim_create_user_command("R", HandleRun, { nargs = "?" })
+vim.api.nvim_create_user_command("Run", HandleRun, { nargs = "?" })
+vim.api.nvim_create_user_command("SetRun", HandleSetRun, { nargs = 1 })
+vim.api.nvim_create_user_command("SR", HandleSetRun, { nargs = 1 })
+vim.api.nvim_create_user_command("GetRun", HandleGetRun, { nargs = 0 })
+vim.api.nvim_create_user_command("GR", HandleGetRun, { nargs = 0 })
 
 -- Window navigation remapped to WASD
 vim.keymap.set('n', '<leader>a', '<C-w>h', { desc = "Move focus to left window" })
