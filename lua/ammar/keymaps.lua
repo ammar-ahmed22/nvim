@@ -24,3 +24,4 @@ vim.keymap.set('n', '<leader>w', '<C-w>w', { desc = "Switch [W]indow" })
 
 -- New vertical window (that's the one I'll be using exclusively)
 vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = "New [V]ertical Window" })
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)

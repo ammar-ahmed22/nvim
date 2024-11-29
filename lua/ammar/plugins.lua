@@ -15,12 +15,6 @@ return require('packer').startup(function(use)
   use {
       'daschw/leaf.nvim',
       as = "leaf",
-      config = function ()
-        require("leaf").setup({
-            contrast = "medium"
-        })
-        vim.cmd("colorscheme leaf")
-      end
   }
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
   use('tpope/vim-fugitive')
