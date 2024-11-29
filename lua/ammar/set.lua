@@ -51,7 +51,6 @@ vim.opt.isfname:append("@-@");
 vim.opt.updatetime = 50;
 
 -- Color the 80th column
-vim.opt.colorcolumn = "80";
 vim.opt.signcolumn = 'yes';
 
 -- Timeout for mapped sequences
