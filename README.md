@@ -104,4 +104,19 @@ Tabulated below is the list of keymaps that I have impelemented and what they ar
 | `gd` | Find and go to the defintionion of something in code (even if it is a different file) |
 | `K` | Hover for language server completion |
 
+## Plugins 
+All the plugins I use and what they do/how I use them are listed below:
+| **Plugin** | **Description** |
+| :--------- | :-------------- |
+| [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager of choice |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy searching for and through (grep) files with a nice UI |
+| [dracula.nvim](https://github.com/Mofiqul/dracula.nvim) | Dracula theme |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | AST generator for syntax highlighting |
+| [vim-fugitive](https://github.com/tpope/vim-fugitive) | Used for the git status UI. |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP (language server) configuration |
+| [mason.nvim](https://github.com/williamboman/mason.nvim) | Install manager for LSP's (i.e. highlighting for TypeScript, Python, etc.) |
+| [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Auto-pairing of brackets. |
+| [Comment.nvim](https://github.com/numToStr/Comment.nvim) | Toggling lines and selections as comments. |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Signs in the gutter for git status (i.e. green bar for new additions, blue for changes, etc.) |
+
 
