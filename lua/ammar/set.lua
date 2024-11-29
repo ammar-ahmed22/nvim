@@ -43,7 +43,7 @@ vim.opt.smartcase = true;
 vim.opt.termguicolors = true;
 
 -- How many lines are always at the bottom
-vim.opt.scrolloff = 8;
+vim.opt.scrolloff = 10;
 vim.opt.signcolumn = "yes";
 vim.opt.isfname:append("@-@");
 
