@@ -1,7 +1,7 @@
 -- Leader
 vim.g.mapleader = " ";
 -- Return to homescreen
-vim.keymap.set("n", "<C-h>", vim.cmd.Ex);
+vim.keymap.set("n", "<leader>h", vim.cmd.Ex);
 
 -- Nerd Font
 vim.g.have_nerd_font = true;
