@@ -86,6 +86,8 @@ Tabulated below is the list of keymaps that I have impelemented and what they ar
 | `<leader>gac` | Runs `[G]it [A]dd . && git [C]ommit -m <MESSAGE>`. (Prompts you for the message) |
 | `<leader>gp` | Runs `[G]it [P]ush` |
 | `<leader>run` | Prompts user for command to [RUN] in the terminal (remap of `:!`) | 
+| `<leader>v` | Creates new vertical window |
+| `<leader>w\|a\|s\|d` | Navigates windows using WASD (i.e. `<leader>d` will move to the right window) |
 | `gcc` | Toggles comments for the line |
 | `gc` | Toggles comments for the selection |
 | `gd` | Find and go to the defintionion of something in code (even if it is a different file) |

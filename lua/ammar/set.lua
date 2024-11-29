@@ -1,4 +1,6 @@
+-- Leader
 vim.g.mapleader = " ";
+-- Return to homescreen
 vim.keymap.set("n", "<C-h>", vim.cmd.Ex);
 
 -- Nerd Font
@@ -117,3 +119,12 @@ function RunCommand()
     end
 end
 
+
+-- Window navigation remapped to WASD
+vim.keymap.set('n', '<leader>a', '<C-w>h', { desc = "Move focus to left window" })
+vim.keymap.set('n', '<leader>s', '<C-w>j', { desc = "Move focus to lower window" })
+vim.keymap.set('n', '<leader>w', '<C-w>k', { desc = "Move focus to upper window" })
+vim.keymap.set('n', '<leader>d', '<C-w>l', { desc = "Move focus to right window" })
+
+-- New vertical window (that's the one I'll be using exclusively)
+vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = "Create new vertical window" })
