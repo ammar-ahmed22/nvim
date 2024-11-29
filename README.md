@@ -92,7 +92,7 @@ Tabulated below is the list of keymaps that I have impelemented and what they ar
 | **Keymap** | **Description** |
 | :--------- | :-------------- |
 | `<leader>h` | Return to Neovim [H]ome screen |
-| `<Ctrl-space>` | Search for files in the current project, does not search `.gitignore`d files. |
+| `<leader>/` | Search for files in the current project, does not search `.gitignore`d files. |
 | `<leader>sw` | [S]earch for the [W]ord on the cursor in the files of the current project, does not search `.gitignored`d files. (Prompts you for the query) |
 | `<leader>sg` | [S]earch for a `[G]rep` query in the files of the current project, does not search `.gitignore`d files. |
 | `<leader>gs` | Show [G]it [S]tatus information |
