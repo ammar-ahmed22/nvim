@@ -64,8 +64,8 @@ return require('packer').startup(function(use)
         require("which-key").setup({
             preset = "modern",
             spec = {
-                {"<leader>g", group = "[G]it"},
-                {"<leader>s", group = "[S]earch"}
+                {"<leader>g", group = "Git"},
+                {"<leader>s", group = "Search"}
             }
         })
       end
