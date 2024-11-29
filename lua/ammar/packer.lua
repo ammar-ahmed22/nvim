@@ -13,11 +13,13 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {
-      'Mofiqul/dracula.nvim',
-      as = "dracula",
+      'daschw/leaf.nvim',
+      as = "leaf",
       config = function ()
-          require("dracula").setup()
-          vim.cmd('colorscheme dracula')
+        require("leaf").setup({
+            contrast = "medium"
+        })
+        vim.cmd("colorscheme leaf")
       end
   }
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})

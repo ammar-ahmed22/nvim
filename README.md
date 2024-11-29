@@ -110,7 +110,7 @@ All the plugins I use and what they do/how I use them are listed below:
 | :--------- | :-------------- |
 | [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager of choice |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy searching for and through (grep) files with a nice UI |
-| [dracula.nvim](https://github.com/Mofiqul/dracula.nvim) | Dracula theme |
+| [leaf.nvim](https://github.com/daschw/leaf.nvim) | Beautiful, earthy, color scheme |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | AST generator for syntax highlighting |
 | [vim-fugitive](https://github.com/tpope/vim-fugitive) | Used for the git status UI. |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP (language server) configuration |
