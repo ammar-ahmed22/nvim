@@ -91,7 +91,6 @@ Tabulated below is the list of keymaps that I have impelemented and what they ar
 
 | **Keymap** | **Description** |
 | :--------- | :-------------- |
-| `<leader>h` | Return to Neovim [H]ome screen |
 | `<leader>/` | Search for files in the current project, does not search `.gitignore`d files. |
 | `<leader>sw` | [S]earch for the [W]ord on the cursor in the files of the current project, does not search `.gitignored`d files. (Prompts you for the query) |
 | `<leader>sg` | [S]earch for a `[G]rep` query in the files of the current project, does not search `.gitignore`d files. |
@@ -118,4 +117,6 @@ All the plugins I use and what they do/how I use them are listed below:
 | [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Auto-pairing of brackets. |
 | [Comment.nvim](https://github.com/numToStr/Comment.nvim) | Toggling lines and selections as comments. |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Signs in the gutter for git status (i.e. green bar for new additions, blue for changes, etc.) |
-
+| [whichkey.nvim](https://github.com/folke/which-key.nvim) | Menu to show commands |
+| [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) | Tree for file exploration |
+| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Status line at the bottom of the window |

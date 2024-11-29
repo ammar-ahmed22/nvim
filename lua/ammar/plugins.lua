@@ -63,4 +63,30 @@ return require('packer').startup(function(use)
         require('gitsigns').setup()
       end
   }
+  use {
+     'folke/which-key.nvim',
+      event = 'VimEnter',
+      config = function ()
+        require("which-key").setup({
+            preset = "modern",
+            spec = {
+                {"<leader>g", group = "[G]it"},
+                {"<leader>s", group = "[S]earch"}
+            }
+        })
+      end
+  }
+  use {
+      'nvim-tree/nvim-tree.lua',
+      requires = {
+          'nvim-tree/nvim-web-devicons', -- optional
+      },
+  }
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = {
+          'nvim-tree/nvim-web-devicons',
+          opt = true
+      }
+  }
 end)

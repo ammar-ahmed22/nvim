@@ -1,7 +1,9 @@
 -- Leader
 vim.g.mapleader = " ";
--- Return to homescreen
-vim.keymap.set("n", "<leader>h", vim.cmd.Ex);
+
+-- Disabling netrw for nvim-tree 
+vim.g.loaded_netrw = 1;
+vim.g.loaded_netrwPlugin = 1;
 
 -- Nerd Font
 vim.g.have_nerd_font = true;
@@ -33,7 +35,6 @@ vim.opt.wrap = true;
 vim.opt.undofile = true;
 
 -- Search
--- vim.opt.hlsearch = false;
 vim.keymap.set("n", '<Esc>', '<cmd>nohlsearch<CR>')
 vim.opt.incsearch = true;
 vim.opt.ignorecase = true;
@@ -64,6 +65,7 @@ vim.opt.splitbelow = true
 -- Show line your cursor is on
 vim.opt.cursorline = true
 
+-- Highlight when copying text
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',
     group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -72,29 +74,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
-
--- Custom command for git add and commit
-vim.keymap.set("n", "<leader>gac", function()
-    local commit_msg = vim.fn.input("message: ");
-    if commit_msg ~= "" then
-        vim.cmd("!git add . && git commit -m \"" .. commit_msg .. "\"")
-    else
-        print("Commit aborted: No message provided.")
-    end
-end, { noremap = true, desc = "Git add and commit with message prompt" })
-
-
--- Custom command for git push
-vim.keymap.set("n", "<leader>gp", function()
-    vim.cmd("!git push")
-end, { noremap = true, desc = "Git push" })
-
-
+-- Saves file if it is modified 
 local function save_if_modified()
     if vim.bo.modified and vim.bo.buftype == "" and vim.bo.buftype ~= "TelescopePrompt" then
         vim.cmd("write")
     end
 end
+
 -- Autosave if file is modified in normal or visual mode 
 vim.api.nvim_create_autocmd("TextChanged", {
     pattern = "*",
@@ -106,6 +92,8 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     pattern = "*",
     callback = save_if_modified
 })
+
+
 -- Custom command functions for running stuff in the terminal 
 
 -- Used with :R/:Run 
@@ -151,12 +139,3 @@ vim.api.nvim_create_user_command("SetRun", HandleSetRun, { nargs = 1 })
 vim.api.nvim_create_user_command("SR", HandleSetRun, { nargs = 1 })
 vim.api.nvim_create_user_command("GetRun", HandleGetRun, { nargs = 0 })
 vim.api.nvim_create_user_command("GR", HandleGetRun, { nargs = 0 })
-
--- Window navigation remapped to WASD
-vim.keymap.set('n', '<leader>a', '<C-w>h', { desc = "Move focus to left window" })
-vim.keymap.set('n', '<leader>s', '<C-w>j', { desc = "Move focus to lower window" })
-vim.keymap.set('n', '<leader>w', '<C-w>k', { desc = "Move focus to upper window" })
-vim.keymap.set('n', '<leader>d', '<C-w>l', { desc = "Move focus to right window" })
-
--- New vertical window (that's the one I'll be using exclusively)
-vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = "Create new vertical window" })
