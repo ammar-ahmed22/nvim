@@ -104,7 +104,7 @@ function HandleRun(args)
         -- Confirm, maybe it was an accident? 
         local confirm = vim.fn.confirm("Do you want to run `" .. vim.g.run_command .. "`?", "&Yes\n&No", 1)
         if confirm == 1 then
-            vim.cmd("!" .. vim.g.run_command)
+            vim.cmd("split | terminal " .. vim.g.run_command)
         end
         return
     end
@@ -112,10 +112,17 @@ function HandleRun(args)
     local command = args.args ~= "" and args.args or vim.g.run_command
     if command == nil or command == "" then
         print("No command to run. Set command with :SetRun <CMD>.")
-        return 
+        return
     end
-    vim.cmd("!" .. command)
+    vim.cmid("split | terminal " .. command)
 end
+
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = "*",
+    callback = function ()
+        vim.cmd("startinsert")
+    end
+})
 
 -- Used with :SR/:SetRun 
 function HandleSetRun(args)
