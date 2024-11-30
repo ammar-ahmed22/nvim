@@ -18,7 +18,7 @@ end)
 
 -- Line numbers
 vim.opt.nu = true;
-vim.opt.relativenumber = true;
+-- vim.opt.relativenumber = true;
 
 -- Tabs and shift
 vim.opt.tabstop = 4;
