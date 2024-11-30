@@ -4,22 +4,6 @@ This repository contains my personalized setup for Neovim. Inspired by
 [ThePrimeagen](https://www.youtube.com/watch?v=w7i4amO_zaE&t=1487s) and
 [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
 
-## Features
-- **Lua**: Leverages the power of the Lua language for configuration
-- **Modern Plugins**: Pluging management with
-  [packer](https://github.com/wbthomason/packer.nvim),
-  [telescope](https://github.com/nvim-telescope/telescope.nvim) for fuzzy
-  finding, [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and
-  [lsp.zero](https://github.com/VonHeikemen/lsp-zero.nvim) for syntax
-  highlighting and language support
-- **Clean Aesthetics**: [Dracula
-  theme](https://github.com/Mofiqul/dracula.nvim) with removed background
-- **Efficient Keymaps**: `␣ h` to return to the file finder, `␣ ff` to search
-  project files, `␣ sf` to search for a query in project files, etc.
-
-> [!NOTE]    
-> **NOT** a Neovim distribution, simply a configuration.
-
 ## Installation
 ### Install Neovim
 Currently, I am using Neovim 0.10.2. It should likely work with all features up
