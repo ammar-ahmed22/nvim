@@ -37,12 +37,13 @@ dashboard.section.header.val = {
 }
 
 dashboard.section.buttons.val = {
-    -- dashboard.button( "e",       "  New file" , ":lua require'nvim-tree.api'.fs.create()<CR>"),
-    dashboard.button( "⎵ + f",   "  Open File Tree", ":NvimTreeOpen <CR>"),
-    dashboard.button( "⎵ + /",   "  Find File", ":lua require'telescope.builtin'.find_files()<CR>"),
-    dashboard.button( "⎵ + cc", "  Ask ChatGPT", ":ChatGPT<CR>"),
-    dashboard.button( "⎵ + gs", "  Git Status", ":Git<CR>"),
-    dashboard.button( "⎵ + q",   "  Quit NVIM" , ":qa<CR>"),
+    dashboard.button( "⎵ + f",   "  Open file tree", ":NvimTreeOpen <CR>"),
+    dashboard.button( "⎵ + /",   "  Find file", ":lua require'telescope.builtin'.find_files()<CR>"),
+    dashboard.button( "⎵ + sg",  "  Find file with grep", ":lua require'telescope.builtin'.live_grep()<CR>"),
+    dashboard.button( "⎵ + gac", "  Git add and commit", ":AddCommit<CR>"),
+    dashboard.button( "⎵ + gs",  "  Git status", ":Git<CR>"),
+    dashboard.button( "⎵ + cc",  "  Ask ChatGPT", ":ChatGPT<CR>"),
+    dashboard.button( "⎵ + q",   "  Quit neovim" , ":qa<CR>"),
 }
 
 dashboard.config.opts.noautocmd = true
