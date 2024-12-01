@@ -8,7 +8,15 @@ return require('packer').startup(function(use)
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
 	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+	  requires = { {'nvim-lua/plenary.nvim'} },
+      config = function ()
+        require("telescope").setup({
+            defaults = {
+                borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
+            }
+        })
+      end
+
   }
   -- Color scheme
   use {
@@ -110,4 +118,6 @@ return require('packer').startup(function(use)
         })
       end
   }
+  -- Command autocomplete
+  use {'~/Documents/Projects/nvim/command-completion.nvim'}
 end)
