@@ -45,6 +45,11 @@ return require('packer').startup(function(use)
       event = "InsertEnter",
       config = function()
           require("nvim-autopairs").setup {}
+          local npairs = require("nvim-autopairs")
+          local Rule = require("nvim-autopairs.rule")
+          npairs.add_rule(
+              Rule("$", "$", { "tex", "latex", "typst" })
+          )
       end
   }
   -- Comments
