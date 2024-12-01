@@ -13,6 +13,9 @@ function SetColorScheme(color)
 	vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
     vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "#71717a" })
     vim.api.nvim_set_hl(0, "FloatTitle", { bg = "none", fg = "#71717a" })
+    vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "#71717a"})
+    vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+    vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
 end
 
 SetColorScheme()
