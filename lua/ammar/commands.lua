@@ -91,3 +91,19 @@ end
 
 vim.api.nvim_create_user_command("Term", HandleTerminal, { nargs = "?" })
 vim.api.nvim_create_user_command("Terminal", HandleTerminal, { nargs = "?" })
+
+
+function HandleGitAddAndCommit()
+    local path = vim.fn.input("Provide a path to git add (default '.'): ")
+    local add_path = path ~= "" and path or "."
+    local commit_msg = vim.fn.input("Provide a commit message: ")
+
+    if commit_msg ~= "" then
+        vim.cmd("!git add " .. add_path .. " && git commit -m \"" .. commit_msg .. "\"")
+    else
+        print("No commit message provided. Aborting.")
+    end
+end
+
+
+vim.api.nvim_create_user_command("AddCommit", HandleGitAddAndCommit, { nargs = 0 })

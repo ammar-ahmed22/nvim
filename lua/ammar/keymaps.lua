@@ -7,20 +7,11 @@ vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "[Q]uit the focused window",
 vim.keymap.set("n", '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Git add and commit 
-vim.keymap.set("n", "<leader>gac", function ()
-    local path = vim.fn.input("Provide a path to git add (default '.'): ")
-    local add_path = path ~= "" and path or ".";
-    local commit_msg = vim.fn.input("Provide a commit message: ")
-    if commit_msg ~= "" then
-        vim.cmd("!git add " .. add_path .. " && git commit -m \"" .. commit_msg .. "\"")
-    end
-end, { noremap = true, desc = "Git [A]dd and [C]ommit"})
+vim.keymap.set("n", "<leader>gac", ":AddCommit<CR>", { desc = "[G]it [A]dd and [C]ommit"})
 
 
 -- Git push
-vim.keymap.set("n", "<leader>gp", function()
-    vim.cmd("!git push")
-end, { noremap = true, desc = "Git [P]ush" })
+vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { noremap = true, desc = "Git [P]ush" })
 
 -- Git status 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git [S]tatus"})
