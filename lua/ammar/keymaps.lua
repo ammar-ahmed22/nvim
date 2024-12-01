@@ -14,24 +14,8 @@ vim.keymap.set("n", "<leader>gac", function ()
     if commit_msg ~= "" then
         vim.cmd("!git add " .. add_path .. " && git commit -m \"" .. commit_msg .. "\"")
     end
-end)
+end, { noremap = true, desc = "Git [A]dd and [C]ommit"})
 
--- -- Git add 
--- vim.keymap.set("n", "<leader>ga", function ()
---     local path = vim.fn.input("Provide a path to git add [.]: ")
---     local add_path = path ~= "" and path or "."
---     vim.cmd("!git add " .. add_path)
--- end, { noremap = true, desc = "Git [A]dd"})
-
--- Git commit 
-vim.keymap.set("n", "<leader>gc", function ()
-    local commit_msg = vim.fn.input("Provide a commit message: ")
-    if commit_msg ~= "" then
-        vim.cmd("!git commit -m \"" .. commit_msg .. "\"")
-    else
-        print("Commit aborted: No message provided.")
-    end
-end, { noremap = true, desc = "Git [C]ommit"})
 
 -- Git push
 vim.keymap.set("n", "<leader>gp", function()

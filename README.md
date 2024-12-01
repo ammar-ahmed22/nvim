@@ -70,27 +70,25 @@ Install plugins with:
 Tabulated below is the list of keymaps that I have impelemented and what they are used for.
 
 > [!NOTE]  
-> Anywhere you see `<leader>` that means to use a space (I have set the
-> `leader` to be the space key)
+> Anywhere you see `⎵` it means space.
 
 | **Keymap** | **Description** |
-| :--------- | :-------------- |
-| `<leader>/` | Search for files in the current project, does not search `.gitignore`d files. |
-| `<leader>sw` | [S]earch for the [W]ord on the cursor in the files of the current project, does not search `.gitignored`d files. (Prompts you for the query) |
-| `<leader>sg` | [S]earch for a `[G]rep` query in the files of the current project, does not search `.gitignore`d files. |
-| `<leader>gs` | Show [G]it [S]tatus information |
-| `<leader>ga` | Runs `[G]it [A]dd`(Prompts you for the add path, default to `.`) |
-| `<leader>gp` | Runs `[G]it [P]ush` |
-| `<leader>gc` | Runs `[G]it [C]ommit` (Prompts you for the message) |
-| `<leader>t`  | Starts a new [T]erminal in a horizontal split window, ready to run commands |
-| `gcc` | Toggles comments for the line |
-| `gc` | Toggles comments for the selection |
-| `gd` | Find and go to the defintionion of something in code (even if it is a different file) |
-| `K` | Hover for language server completion |
-| `<leader>h`| Return to [H]ome screen |
-| `<leader>cc` | Open [C]hatGPT [C]hat |
-| `<leader>n` | [N]ew File or Directory Prompt |
-
+| :--------- | :-------------- | 
+| `⎵ + h`| Return to [H]ome screen |
+| `⎵ + f` | Open the file tree and focus on it |
+| `⎵ + /` | Search for files in the current project, does not search `.gitignore`d files. |
+| `⎵ + sw` | [S]earch for the [W]ord on the cursor in the files of the current project, does not search `.gitignored`d files. (Prompts you for the query) |
+| `⎵ + sg` | [S]earch for a `[G]rep` query in the files of the current project, does not search `.gitignore`d files. |
+| `⎵ + gs` | Show [G]it [S]tatus information |
+| `⎵ + gac` | Runs `[G]it [A]dd and [C]ommit`(Prompts you for the add path, defaults to `.`, then prompts for the commit message) |
+| `⎵ + gp` | Runs `[G]it [P]ush` |
+| `⎵ + t`  | Starts a new [T]erminal in a horizontal split window, ready to run commands |
+| `⎵ + cc` | Open [C]hatGPT [C]hat |
+| `⎵ + n` | [N]ew File or Directory Prompt |
+| `⎵ + e` | Move to the left window |
+| `⎵ + r` | Move to the right window |
+| `⎵ + w` | Cycle windows right to left |
+| `⎵ + W` | Cycle windows left to right |
 ## Custom Commands
 I have a defined a few of my own custom commands:
 
@@ -104,9 +102,9 @@ It works that same as `:terminal`, however, the terminal window is a opened in a
 I have also setup a neovim auto command that whenever any terminal is opened, it jumps to insert mode. So, as soon as I open the terminal, it is ready to use. This also allows for closing and exiting with `Enter` when a command is passed to `:terminal` (or `:Term/:Terminal`as well)
 
 I have also setup a few keymaps for the terminal:
-- `<leader>t`: Opens a new terminal
+- `⎵ + t`: Opens a new terminal
 - `<Esc>`: When in terminal mode, exits and closes the terminal
-- `<C-\\>`: When in terminal mode, exits and closes the terminal (can't use `Ctrl+C` because that's used by the terminal)
+- `Ctrl + \\`: When in terminal mode, exits and closes the terminal (can't use `Ctrl+C` because that's used by the terminal)
 
 ### Running Common Commands
 I find that I am typically running the same terminal command over and over. For example, working on a Rust project, I will continously run `cargo run` or for a python project I will continously run `python3 main.py`. For this reason, I set up a few custom commands:
@@ -123,7 +121,7 @@ This command takes 0 arguments. Displays the saved `run_command` or helpful mess
 ### Creating files/Directories
 With nvim-tree, it became a little eaiser to create files as I could just press `a` on the tree and it would prompt me to create a file/directory. However, I want it to be more interactive. I like how prompts look and feel so I created my own prompt with `telescope`. 
 
-I can keep creating files and directories relative to the working directory until I am satisified. Can be run with `<leader>n` or `:PromptCreator`.
+I can keep creating files and directories relative to the working directory until I am satisified. Can be run with `⎵ + n` or `:PromptCreator`.
 
 ## Plugins 
 All the plugins I use and what they do/how I use them are listed below:
