@@ -1,6 +1,6 @@
 require("lualine").setup({
     options = {
-        theme = "gruvbox",
-        globalstatus = true
-    }
+        theme = "codedark",
+    },
+    extensions = {'nvim-tree'}
 })
