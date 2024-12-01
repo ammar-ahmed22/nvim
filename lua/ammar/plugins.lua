@@ -7,16 +7,7 @@ return require('packer').startup(function(use)
   -- Windows for search and chat gpt as well
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
-	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} },
-      config = function ()
-        require("telescope").setup({
-            defaults = {
-                borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
-            }
-        })
-      end
-
   }
   -- Color scheme
   use {
@@ -74,16 +65,6 @@ return require('packer').startup(function(use)
   use {
      'folke/which-key.nvim',
       event = 'VimEnter',
-      config = function ()
-        require("which-key").setup({
-            preset = "modern",
-            spec = {
-                {"<leader>g", group = "Git"},
-                {"<leader>s", group = "Search"},
-                {"<leader>c", group = "ChatGPT"}
-            }
-        })
-      end
   }
   -- File tree 
   use {
@@ -104,19 +85,11 @@ return require('packer').startup(function(use)
   use {
       "jackMort/ChatGPT.nvim",
       requires = {
-          "MunifTanjim/nui.nvim",
-          "nvim-lua/plenary.nvim",
-          "folke/trouble.nvim",
-          "nvim-telescope/telescope.nvim"
-      },
-      config = function ()
-        require("chatgpt").setup({
-            openai_params = {
-                model = "gpt-4o",
-                max_tokens = 4096,
-            }
-        })
-      end
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "folke/trouble.nvim",
+        "nvim-telescope/telescope.nvim"
+      }
   }
   -- Command autocomplete
   use {'~/Documents/Projects/nvim/command-completion.nvim'}

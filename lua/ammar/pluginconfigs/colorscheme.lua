@@ -12,6 +12,7 @@ function SetColorScheme(color)
 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 	vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
     vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "#71717a" })
+    vim.api.nvim_set_hl(0, "FloatTitle", { bg = "none", fg = "#71717a" })
 end
 
 SetColorScheme()
