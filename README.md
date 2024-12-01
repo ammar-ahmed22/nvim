@@ -61,7 +61,7 @@ Install plugins with:
 
 > [!NOTE]  
 > `:PackerSync` will likely remove the transparent background. Run `:lua
-> RemoveBg()` to remove it again (this only needs to be called after
+> SetColorScheme()` to remove it again (this only needs to be called after
 > `:PackerSync`, opening a new session of `nvim` will do this automatically)
 
 
@@ -79,13 +79,44 @@ Tabulated below is the list of keymaps that I have impelemented and what they ar
 | `<leader>sw` | [S]earch for the [W]ord on the cursor in the files of the current project, does not search `.gitignored`d files. (Prompts you for the query) |
 | `<leader>sg` | [S]earch for a `[G]rep` query in the files of the current project, does not search `.gitignore`d files. |
 | `<leader>gs` | Show [G]it [S]tatus information |
-| `<leader>gac` | Runs `[G]it [A]dd . && git [C]ommit -m <MESSAGE>`. (Prompts you for the message) |
+| `<leader>ga` | Runs `[G]it [A]dd`(Prompts you for the add path, default to `.`) |
 | `<leader>gp` | Runs `[G]it [P]ush` |
-| `<leader>run` | Prompts user for command to [RUN] in the terminal (remap of `:!`) | 
+| `<leader>gc` | Runs `[G]it [C]ommit` (Prompts you for the message) |
+| `<leader>t`  | Starts a new [T]erminal in a horizontal split window, ready to run commands |
 | `gcc` | Toggles comments for the line |
 | `gc` | Toggles comments for the selection |
 | `gd` | Find and go to the defintionion of something in code (even if it is a different file) |
 | `K` | Hover for language server completion |
+
+
+## Custom Commands
+I have a defined a few of my own custom commands:
+
+### Terminal Stuff
+In neovim, there is a command called `:terminal` which opens up a terminal kind of like a text-editor with a special terminal mode. If you go into insert mode from terminal mode, you can now interact with your terminal as if you are in it. 
+
+My problem was, I don't want it to take up the window I am working on, I want it to open a new window. So, I wrote my own custom commands, `:Term/:Terminal`.
+
+It works that same as `:terminal`, however, the terminal window is a opened in a split horizontal window (below the current window).
+
+I have also setup a neovim auto command that whenever any terminal is opened, it jumps to insert mode. So, as soon as I open the terminal, it is ready to use. This also allows for closing and exiting with `Enter` when a command is passed to `:terminal` (or `:Term/:Terminal`as well)
+
+I have also setup a few keymaps for the terminal:
+- `<leader>t`: Opens a new terminal
+- `<Esc>`: When in terminal mode, exits and closes the terminal
+- `<C-\\>`: When in terminal mode, exits and closes the terminal (can't use `Ctrl+C` because that's used by the terminal)
+
+### Running Common Commands
+I find that I am typically running the same terminal command over and over. For example, working on a Rust project, I will continously run `cargo run` or for a python project I will continously run `python3 main.py`. For this reason, I set up a few custom commands:
+
+#### `:R/:Run`
+This command takes either 0 or 1 arguments. If it is run with 0 arguments, it checks if a `run_command` is set and runs that (prompting the user to confirm). If it is passed an argument, it runs that argument in the terminal.
+
+#### `:SR/:SetRun`
+This command takes 1 argument. Saves the passed argument as the `run_command`. If `:R` is called with no arguments, it runs this.
+
+#### `:GR/:GetRun`
+This command takes 0 arguments. Displays the saved `run_command` or helpful message if there is none.
 
 ## Plugins 
 All the plugins I use and what they do/how I use them are listed below:
