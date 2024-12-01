@@ -120,7 +120,7 @@ This command takes 1 argument. Saves the passed argument as the `run_command`. I
 #### `:GR/:GetRun`
 This command takes 0 arguments. Displays the saved `run_command` or helpful message if there is none.
 
-### Creating files/directors
+### Creating files/Directories
 With nvim-tree, it became a little eaiser to create files as I could just press `a` on the tree and it would prompt me to create a file/directory. However, I want it to be more interactive. I like how prompts look and feel so I created my own prompt with `telescope`. 
 
 I can keep creating files and directories relative to the working directory until I am satisified. Can be run with `<leader>n` or `:PromptCreator`.
