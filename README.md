@@ -87,7 +87,9 @@ Tabulated below is the list of keymaps that I have impelemented and what they ar
 | `gc` | Toggles comments for the selection |
 | `gd` | Find and go to the defintionion of something in code (even if it is a different file) |
 | `K` | Hover for language server completion |
-
+| `<leader>h`| Return to [H]ome screen |
+| `<leader>cc` | Open [C]hatGPT [C]hat |
+| `<leader>n` | [N]ew File or Directory Prompt |
 
 ## Custom Commands
 I have a defined a few of my own custom commands:
@@ -118,6 +120,11 @@ This command takes 1 argument. Saves the passed argument as the `run_command`. I
 #### `:GR/:GetRun`
 This command takes 0 arguments. Displays the saved `run_command` or helpful message if there is none.
 
+### Creating files/directors
+With nvim-tree, it became a little eaiser to create files as I could just press `a` on the tree and it would prompt me to create a file/directory. However, I want it to be more interactive. I like how prompts look and feel so I created my own prompt with `telescope`. 
+
+I can keep creating files and directories relative to the working directory until I am satisified. Can be run with `<leader>n` or `:PromptCreator`.
+
 ## Plugins 
 All the plugins I use and what they do/how I use them are listed below:
 | **Plugin** | **Description** |
@@ -135,3 +142,6 @@ All the plugins I use and what they do/how I use them are listed below:
 | [whichkey.nvim](https://github.com/folke/which-key.nvim) | Menu to show commands |
 | [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) | Tree for file exploration |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Status line at the bottom of the window |
+| [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim) | ChatGPT prompt. |
+| [alpha-nvim](https://github.com/goolord/alpha-nvim) | Start screen UI |
+| [command-completion.nvim](https://github.com/smolck/command-completion.nvim) | Command completion window |
