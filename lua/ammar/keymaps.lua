@@ -58,3 +58,7 @@ end, { noremap = true, silent = true, desc = "Start [T]erminal"})
 -- ChatGPT plugin keybinding 
 vim.keymap.set('n', "<leader>cc", ":ChatGPT<CR>", { noremap = true, silent = true, desc = "Open [C]hatGPT [C]hat"})
 
+
+-- Alpha as home 
+vim.keymap.set('n', "<leader>h", ":Alpha<CR>", { noremap = true, silent = true, desc = "Return to [H]ome screen"})
+

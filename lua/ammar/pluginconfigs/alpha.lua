@@ -19,8 +19,7 @@ local function center_string(str, width)
         return string.rep(" ", padding) .. str .. string.rep(" ", padding)
     end
 end
-
-local centered_cwd = center_string(cwd, ascii_width)
+local formatted_cwd = vim.fn.fnamemodify(cwd, ":~")
 dashboard.section.header.val = {
     [[                                    d8b              ]],
     [[                                    Y8P              ]],
@@ -34,16 +33,16 @@ dashboard.section.header.val = {
     [[                                                     ]],
     center_string("Welcome, Ammar", ascii_width),
     [[                                                     ]],
-    centered_cwd,
+    center_string(formatted_cwd, ascii_width),
 }
 
 dashboard.section.buttons.val = {
-    dashboard.button( "e",       "  New file" , ":lua require'nvim-tree.api'.fs.create()<CR>"),
-    dashboard.button( "SPC f",   "  Open File Tree", ":NvimTreeOpen <CR>"),
-    dashboard.button( "SPC /",   "  Find File", ":lua require'telescope.builtin'.find_files()<CR>"),
-    dashboard.button( "SPC c c", "  Ask ChatGPT", ":ChatGPT<CR>"),
-    dashboard.button( "SPC g s", "  Git Status", ":Git<CR>"),
-    dashboard.button( "SPC q",   "  Quit NVIM" , ":qa<CR>"),
+    -- dashboard.button( "e",       "  New file" , ":lua require'nvim-tree.api'.fs.create()<CR>"),
+    dashboard.button( "⎵ + f",   "  Open File Tree", ":NvimTreeOpen <CR>"),
+    dashboard.button( "⎵ + /",   "  Find File", ":lua require'telescope.builtin'.find_files()<CR>"),
+    dashboard.button( "⎵ + cc", "  Ask ChatGPT", ":ChatGPT<CR>"),
+    dashboard.button( "⎵ + gs", "  Git Status", ":Git<CR>"),
+    dashboard.button( "⎵ + q",   "  Quit NVIM" , ":qa<CR>"),
 }
 
 dashboard.config.opts.noautocmd = true
