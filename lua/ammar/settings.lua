@@ -1,3 +1,5 @@
+-- Enables faster loading
+vim.loader.enable()
 -- Leader
 vim.g.mapleader = " ";
 
