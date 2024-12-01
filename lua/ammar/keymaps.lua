@@ -53,3 +53,9 @@ vim.keymap.set('t', "<C-\\>", '<C-\\><C-n>:q<CR>', { noremap = true, silent = tr
 vim.keymap.set('n', '<leader>t', function ()
     vim.cmd("split | terminal")
 end, { noremap = true, silent = true, desc = "Start [T]erminal"})
+
+
+-- ChatGPT plugin keybinding 
+vim.keymap.set('n', "<leader>cc", ":ChatGPT<CR>", { noremap = true, silent = true, desc = "Open [C]hatGPT [C]hat"})
+
+

@@ -1,23 +1,25 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-
+  -- Windows for search and chat gpt as well
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
+  -- Color scheme
   use {
       'daschw/leaf.nvim',
       as = "leaf",
   }
+  -- AST generator for better syntax highlighting
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
+  -- Git status page + other git commands
   use('tpope/vim-fugitive')
+  -- Language server 
   use {
       'neovim/nvim-lspconfig',
 	  requires = {
@@ -38,6 +40,7 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
 	  }
   }
+  -- Autopairing brackets and quotes
   use {
       "windwp/nvim-autopairs",
       event = "InsertEnter",
@@ -45,18 +48,21 @@ return require('packer').startup(function(use)
           require("nvim-autopairs").setup {}
       end
   }
+  -- Comments
   use {
       'numToStr/Comment.nvim',
       config = function ()
         require("Comment").setup()
       end
   }
+  -- Git signs beside lines
   use {
       'lewis6991/gitsigns.nvim',
       config = function ()
         require('gitsigns').setup()
       end
   }
+  -- Help menu for keybindings
   use {
      'folke/which-key.nvim',
       event = 'VimEnter',
@@ -65,22 +71,43 @@ return require('packer').startup(function(use)
             preset = "modern",
             spec = {
                 {"<leader>g", group = "Git"},
-                {"<leader>s", group = "Search"}
+                {"<leader>s", group = "Search"},
+                {"<leader>c", group = "ChatGPT"}
             }
         })
       end
   }
+  -- File tree 
   use {
       'nvim-tree/nvim-tree.lua',
       requires = {
           'nvim-tree/nvim-web-devicons', -- optional
       },
   }
+  -- Bottom status bar plugin
   use {
       'nvim-lualine/lualine.nvim',
       requires = {
           'nvim-tree/nvim-web-devicons',
           opt = true
       }
+  }
+  -- ChatGPT plugin 
+  use {
+      "jackMort/ChatGPT.nvim",
+      requires = {
+          "MunifTanjim/nui.nvim",
+          "nvim-lua/plenary.nvim",
+          "folke/trouble.nvim",
+          "nvim-telescope/telescope.nvim"
+      },
+      config = function ()
+        require("chatgpt").setup({
+            openai_params = {
+                model = "gpt-4o",
+                max_tokens = 4096,
+            }
+        })
+      end
   }
 end)
