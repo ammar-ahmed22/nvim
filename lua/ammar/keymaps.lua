@@ -44,5 +44,12 @@ vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = "New [V]ertical Window"
 -- Page up and down center cursor 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
---
 
+-- Closing terminal in insert mode 
+vim.keymap.set('t', "<Esc>", '<C-\\><C-n>:q<CR>', { noremap = true, silent = true })
+vim.keymap.set('t', "<C-\\>", '<C-\\><C-n>:q<CR>', { noremap = true, silent = true })
+
+-- Opening terminal session in horizontal split window 
+vim.keymap.set('n', '<leader>t', function ()
+    vim.cmd("split | terminal")
+end, { noremap = true, silent = true, desc = "Start [T]erminal"})
