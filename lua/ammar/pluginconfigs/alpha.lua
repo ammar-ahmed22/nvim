@@ -38,7 +38,7 @@ dashboard.section.header.val = {
 }
 
 dashboard.section.buttons.val = {
-    dashboard.button( "e",       "  New file" , ":ene <BAR> startinsert <CR>"),
+    dashboard.button( "e",       "  New file" , ":lua require'nvim-tree.api'.fs.create()<CR>"),
     dashboard.button( "SPC f",   "  Open File Tree", ":NvimTreeOpen <CR>"),
     dashboard.button( "SPC /",   "  Find File", ":lua require'telescope.builtin'.find_files()<CR>"),
     dashboard.button( "SPC c c", "  Ask ChatGPT", ":ChatGPT<CR>"),
