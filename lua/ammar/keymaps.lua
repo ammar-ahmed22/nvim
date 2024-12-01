@@ -6,12 +6,22 @@ vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "[Q]uit the focused window",
 -- Escape in normal mode to remove search higlight
 vim.keymap.set("n", '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Git add 
-vim.keymap.set("n", "<leader>ga", function ()
-    local path = vim.fn.input("Provide a path to git add [.]: ")
-    local add_path = path ~= "" and path or "."
-    vim.cmd("!git add " .. add_path)
-end, { noremap = true, desc = "Git [A]dd"})
+-- Git add and commit 
+vim.keymap.set("n", "<leader>gac", function ()
+    local path = vim.fn.input("Provide a path to git add (default '.'): ")
+    local add_path = path ~= "" and path or ".";
+    local commit_msg = vim.fn.input("Provide a commit message: ")
+    if commit_msg ~= "" then
+        vim.cmd("!git add " .. add_path .. " && git commit -m \"" .. commit_msg .. "\"")
+    end
+end)
+
+-- -- Git add 
+-- vim.keymap.set("n", "<leader>ga", function ()
+--     local path = vim.fn.input("Provide a path to git add [.]: ")
+--     local add_path = path ~= "" and path or "."
+--     vim.cmd("!git add " .. add_path)
+-- end, { noremap = true, desc = "Git [A]dd"})
 
 -- Git commit 
 vim.keymap.set("n", "<leader>gc", function ()
