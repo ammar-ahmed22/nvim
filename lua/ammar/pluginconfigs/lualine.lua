@@ -16,7 +16,7 @@ require('lualine').setup {
       '%=', --[[ add your center compoentnts here in place of this comment ]]
     },
     lualine_x = {},
-    lualine_y = { "os.date('%a, %b %d, %Y')" },
+    lualine_y = { 'os.date("%a, %b " .. require("utils").get_ordinal_date(tonumber(os.date("%d"))) .. " %Y")' },
     lualine_z = {
       { 'os.date("%I:%M %p")', separator = { right = '' }, left_padding = 2 },
     },
