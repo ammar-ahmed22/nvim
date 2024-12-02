@@ -7,7 +7,8 @@ require("which-key").setup({
     spec = {
         {"<leader>g", group = "Git"},
         {"<leader>s", group = "Search"},
-        {"<leader>c", group = "ChatGPT"}
+        {"<leader>c", group = "ChatGPT"},
+        {"<leader>n", group = "New"}
     },
     win = {
         border = "single",
