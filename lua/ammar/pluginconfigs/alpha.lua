@@ -27,7 +27,7 @@ dashboard.section.header.val = {
 }
 
 dashboard.section.buttons.val = {
-    dashboard.button( "⎵ + f",   "  Open file tree", ":NvimTreeOpen <CR>"),
+    dashboard.button( "⎵ + f",   "  Toggle file tree", ":NvimTreeToggle <CR>"),
     dashboard.button( "⎵ + /",   "  Find file", ":lua require'telescope.builtin'.find_files()<CR>"),
     dashboard.button( "⎵ + sg",  "  Find file with grep", ":lua require'telescope.builtin'.live_grep()<CR>"),
     dashboard.button( "⎵ + gac", "  Git add and commit", ":AddCommit<CR>"),

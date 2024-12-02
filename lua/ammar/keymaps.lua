@@ -1,5 +1,5 @@
 -- Open and focus the file tree 
-vim.keymap.set("n", "<leader>f", ":NvimTreeFocus<CR>", { desc = "[F]ile tree", silent = true })
+vim.keymap.set("n", "<leader>f", ":NvimTreeToggle<CR>", { desc = "Toggle [F]ile tree", silent = true })
 -- Quit window 
 vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "[Q]uit the focused window", silent = true })
 
