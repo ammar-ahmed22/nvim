@@ -86,4 +86,4 @@ end
 
 -- Create a user command
 vim.api.nvim_create_user_command("PromptCreator", prompt_creator, {})
-vim.keymap.set("n", "<leader>n", ":PromptCreator<CR>", { desc = "[N]ew File or Directory Prompt"})
+vim.keymap.set("n", "<leader>nf", ":PromptCreator<CR>", { desc = "[N]ew [F]ile or Directory Prompt"})
