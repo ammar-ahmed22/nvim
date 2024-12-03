@@ -26,6 +26,14 @@ function M.center_string(str, width)
     return string.rep(" ", padding) .. str .. string.rep(" ", padding)
 end
 
+function M.right_string(str, width)
+    if #str > width then
+        return str
+    end
+    local padding = width - #str
+    return string.rep(" ", padding) .. str
+end
+
 function M.format_path(path)
     return vim.fn.fnamemodify(path, ":~")
 end
