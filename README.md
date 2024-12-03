@@ -138,7 +138,7 @@ All the plugins I use and what they do/how I use them are listed below:
 | [Comment.nvim](https://github.com/numToStr/Comment.nvim) | Toggling lines and selections as comments. |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Signs in the gutter for git status (i.e. green bar for new additions, blue for changes, etc.) |
 | [whichkey.nvim](https://github.com/folke/which-key.nvim) | Menu to show commands |
-| [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) | Tree for file exploration |
+| [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) | Tree for file exploration |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Status line at the bottom of the window |
 | [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim) | ChatGPT prompt. |
 | [alpha-nvim](https://github.com/goolord/alpha-nvim) | Start screen UI |
