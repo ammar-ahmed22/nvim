@@ -9,12 +9,13 @@ vim.keymap.set("n", '<Esc>', '<cmd>nohlsearch<CR>')
 -- Git add and commit 
 vim.keymap.set("n", "<leader>gac", ":AddCommit<CR>", { desc = "[G]it [A]dd and [C]ommit"})
 
-
 -- Git push
 vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { noremap = true, desc = "Git [P]ush" })
 
 -- Git status 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git [S]tatus"})
+
+vim.keymap.set("n", "<leader>gb", ":Git branch <CR>", { desc = "Git [B]ranch" })
 
 -- Window navigation
 vim.keymap.set('n', '<leader>w', '<C-w>w', { desc = "Switch [W]indow (R-L)" })
