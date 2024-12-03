@@ -9,11 +9,8 @@ return require('packer').startup(function(use)
 	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
 	  requires = { {'nvim-lua/plenary.nvim'} },
   }
-  -- Color scheme
-  use {
-      'daschw/leaf.nvim',
-      as = "leaf",
-  }
+  -- Synthwave 84 theme
+  use { "samharju/synthweave.nvim" }
   -- AST generator for better syntax highlighting
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
   -- Git status page + other git commands

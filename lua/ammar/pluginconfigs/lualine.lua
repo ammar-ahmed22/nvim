@@ -1,6 +1,11 @@
+local nightfly = require("lualine.themes.nightfly")
+
+nightfly.normal.c.bg = "none"
+nightfly.normal.c.bg = "none"
+
 require('lualine').setup {
   options = {
-    theme = "codedark",
+    theme = nightfly,
     component_separators = '',
     section_separators = { left = '', right = '' },
     disabled_filetypes = {

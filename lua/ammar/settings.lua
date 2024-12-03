@@ -20,7 +20,7 @@ end)
 
 -- Line numbers
 vim.opt.nu = true;
--- vim.opt.relativenumber = true;
+vim.opt.relativenumber = true;
 
 -- Tabs and shift
 vim.opt.tabstop = 4;
@@ -57,7 +57,7 @@ vim.opt.updatetime = 50;
 vim.opt.signcolumn = 'yes';
 
 -- Timeout for mapped sequences
-vim.opt.timeoutlen = 300;
+vim.opt.timeoutlen = 100;
 
 
 -- Configure how new splits should be opened
@@ -67,5 +67,8 @@ vim.opt.splitbelow = true
 -- Show line your cursor is on
 vim.opt.cursorline = true
 
+-- whitespace chars
+vim.opt.list = true;
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
-
+vim.opt.inccommand = "split"
