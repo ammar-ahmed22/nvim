@@ -98,4 +98,10 @@ return require('packer').startup(function(use)
   use {
       'goolord/alpha-nvim',
   }
+  use {
+       "lukas-reineke/indent-blankline.nvim",
+       config = function ()
+        require("ibl").setup()
+       end
+  }
 end)
