@@ -33,7 +33,7 @@ for key, value in pairs(custom_colors) do
 end
 
 local ascii = {}
-local ascii_file = io.open("./lua/ammar/pluginconfigs/alpha/ascii.txt", "r")
+local ascii_file = io.open("/Users/ammar/.config/nvim/lua/ammar/pluginconfigs/alpha/ascii.txt", "r")
 if ascii_file then
     for line in ascii_file:lines() do
         table.insert(ascii, line)
@@ -109,7 +109,7 @@ dashboard.section.header.opts = {
 }
 
 dashboard.section.buttons.val = {
-    dashboard.button( "⎵ + f",   "  Toggle file tree", ":NvimTreeToggle <CR>"),
+    dashboard.button( "⎵ + f",   "  Toggle file tree", ":Neotree focus toggle<CR>"),
     dashboard.button( "⎵ + /",   "  Find file", ":lua require'telescope.builtin'.find_files()<CR>"),
     dashboard.button( "⎵ + sg",  "  Find file with grep", ":lua require'telescope.builtin'.live_grep()<CR>"),
     dashboard.button( "⎵ + gac", "  Git add and commit", ":AddCommit<CR>"),
