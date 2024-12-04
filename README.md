@@ -63,13 +63,6 @@ Install plugins with:
 :PackerSync
 ```
 
-> [!NOTE]  
-> `:PackerSync` will likely remove the transparent background. Run `:lua
-> SetColorScheme()` to remove it again (this only needs to be called after
-> `:PackerSync`, opening a new session of `nvim` will do this automatically)
-
-
-
 ## Keymaps
 Tabulated below is the list of keymaps that I have impelemented and what they are used for.
 
