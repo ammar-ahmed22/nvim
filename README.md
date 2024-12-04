@@ -123,23 +123,24 @@ With nvim-tree, it became a little eaiser to create files as I could just press 
 
 I can keep creating files and directories relative to the working directory until I am satisified. Can be run with `⎵ + n` or `:PromptCreator`.
 
-## Plugins 
-All the plugins I use and what they do/how I use them are listed below:
-| **Plugin** | **Description** |
-| :--------- | :-------------- |
-| [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager of choice |
-| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy searching for and through (grep) files with a nice UI |
-| [leaf.nvim](https://github.com/daschw/leaf.nvim) | Beautiful, earthy, color scheme |
-| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | AST generator for syntax highlighting |
-| [vim-fugitive](https://github.com/tpope/vim-fugitive) | Used for the git status UI. |
-| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP (language server) configuration |
-| [mason.nvim](https://github.com/williamboman/mason.nvim) | Install manager for LSP's (i.e. highlighting for TypeScript, Python, etc.) |
-| [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Auto-pairing of brackets. |
-| [Comment.nvim](https://github.com/numToStr/Comment.nvim) | Toggling lines and selections as comments. |
-| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Signs in the gutter for git status (i.e. green bar for new additions, blue for changes, etc.) |
-| [whichkey.nvim](https://github.com/folke/which-key.nvim) | Menu to show commands |
-| [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) | Tree for file exploration |
-| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Status line at the bottom of the window |
-| [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim) | ChatGPT prompt. |
-| [alpha-nvim](https://github.com/goolord/alpha-nvim) | Start screen UI |
-| [command-completion.nvim](https://github.com/smolck/command-completion.nvim) | Command completion window |
+<!-- Waaaay too many plugins to keep documenting them but i'll just keep it here -->
+<!-- ## Plugins  -->
+<!-- All the plugins I use and what they do/how I use them are listed below: -->
+<!-- | **Plugin** | **Description** | -->
+<!-- | :--------- | :-------------- | -->
+<!-- | [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager of choice | -->
+<!-- | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy searching for and through (grep) files with a nice UI | -->
+<!-- | [leaf.nvim](https://github.com/daschw/leaf.nvim) | Beautiful, earthy, color scheme | -->
+<!-- | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | AST generator for syntax highlighting | -->
+<!-- | [vim-fugitive](https://github.com/tpope/vim-fugitive) | Used for the git status UI. | -->
+<!-- | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP (language server) configuration | -->
+<!-- | [mason.nvim](https://github.com/williamboman/mason.nvim) | Install manager for LSP's (i.e. highlighting for TypeScript, Python, etc.) | -->
+<!-- | [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Auto-pairing of brackets. | -->
+<!-- | [Comment.nvim](https://github.com/numToStr/Comment.nvim) | Toggling lines and selections as comments. | -->
+<!-- | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Signs in the gutter for git status (i.e. green bar for new additions, blue for changes, etc.) | -->
+<!-- | [whichkey.nvim](https://github.com/folke/which-key.nvim) | Menu to show commands | -->
+<!-- | [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) | Tree for file exploration | -->
+<!-- | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Status line at the bottom of the window | -->
+<!-- | [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim) | ChatGPT prompt. | -->
+<!-- | [alpha-nvim](https://github.com/goolord/alpha-nvim) | Start screen UI | -->
+<!-- | [command-completion.nvim](https://github.com/smolck/command-completion.nvim) | Command completion window | -->
