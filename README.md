@@ -1,4 +1,7 @@
 # ammar.nvim
+<div align="center">
+    <img src="./images/nvimhome.png" width="400" />
+</div>
 ## Introduction
 This repository contains my personalized setup for Neovim. Inspired by
 [ThePrimeagen](https://www.youtube.com/watch?v=w7i4amO_zaE&t=1487s) and
