@@ -50,6 +50,6 @@ vim.keymap.set('n', "<leader>h", ":Alpha<CR>", { noremap = true, silent = true, 
 -- Newline under current line in normal mode 
 vim.keymap.set('n', "<leader>nl", "o<C-c>", { noremap = true, silent = true, desc = "[N]ew [L]ine under current"})
 
-vim.keymap.set('n', "<leader>F", ":%s/", { noremap = true, desc = "[F]ind and replace in file."})
-
+vim.keymap.set('n', "gfr", ":%s/", { noremap = true, desc = "[F]ind and replace in file."})
+vim.keymap.set('n', 'gff', "/", { noremap = true, desc = "[F]ind in file."})
 

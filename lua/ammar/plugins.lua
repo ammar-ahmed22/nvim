@@ -114,4 +114,10 @@ return require('packer').startup(function(use)
         require("ibl").setup()
        end
   }
+  use {
+      "theprimeagen/vim-be-good",
+      requires = {
+          "nvim-lua/plenary.nvim"
+      }
+  }
 end)
