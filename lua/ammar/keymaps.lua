@@ -53,3 +53,4 @@ vim.keymap.set('n', "<leader>nl", "o<C-c>", { noremap = true, silent = true, des
 vim.keymap.set('n', "gfr", ":%s/", { noremap = true, desc = "[F]ind and replace in file."})
 vim.keymap.set('n', 'gff', "/", { noremap = true, desc = "[F]ind in file."})
 
+
