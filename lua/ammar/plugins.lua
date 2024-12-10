@@ -126,4 +126,10 @@ return require('packer').startup(function(use)
       branch = "harpoon2",
       requires = { {"nvim-lua/plenary.nvim"} }
   }
+  use {
+      "windwp/nvim-ts-autotag",
+      config = function ()
+        require("nvim-ts-autotag").setup()
+      end
+  }
 end)

@@ -26,7 +26,8 @@ require('mason-lspconfig').setup({
     'lua_ls',
     'rust_analyzer',
     'tinymist',
-    'pyright'
+    'pyright',
+    'html'
   },
   handlers = {
     function(server)
