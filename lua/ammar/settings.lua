@@ -72,3 +72,9 @@ vim.opt.list = true;
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 vim.opt.inccommand = "split"
+
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, {
+    pattern = "*",
+    command = "checktime",
+})

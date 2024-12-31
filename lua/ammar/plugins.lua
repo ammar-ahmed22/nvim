@@ -54,7 +54,11 @@ return require('packer').startup(function(use)
   use {
       'numToStr/Comment.nvim',
       config = function ()
-        require("Comment").setup()
+        require("Comment").setup({
+            pre_hook = function (ctx)
+                return require('Comment.jsx').calculate(ctx)
+            end
+        })
       end
   }
   -- Git signs beside lines
