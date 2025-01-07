@@ -27,7 +27,8 @@ require('mason-lspconfig').setup({
     'rust_analyzer',
     'tinymist',
     'pyright',
-    'html'
+    'html',
+    'gopls'
   },
   handlers = {
     function(server)
