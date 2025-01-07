@@ -20,3 +20,14 @@ vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-p>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-n>", function() harpoon:list():next() end)
+
+local curr_idx = 1
+vim.keymap.set("n", "<C-c>", function ()
+    local len = harpoon:list():length()
+    if len == 0 then
+        print("No files in Harpoon!")
+        return
+    end
+    harpoon:list():select(curr_idx)
+    curr_idx = (curr_idx % len) + 1
+end)
