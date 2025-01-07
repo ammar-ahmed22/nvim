@@ -53,13 +53,12 @@ return require('packer').startup(function(use)
   -- Comments
   use {
       'numToStr/Comment.nvim',
-      config = function ()
-        require("Comment").setup({
-            pre_hook = function (ctx)
-                return require('Comment.jsx').calculate(ctx)
-            end
-        })
-      end
+      requires = "JoosepAlviste/nvim-ts-context-commentstring",
+      config = function()
+          require("Comment").setup {
+              pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+          }
+      end,
   }
   -- Git signs beside lines
   use {
@@ -83,13 +82,6 @@ return require('packer').startup(function(use)
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     }
   }
-  -- File tree 
-  -- use {
-  --     'nvim-tree/nvim-tree.lua',
-  --     requires = {
-  --         'nvim-tree/nvim-web-devicons', -- optional
-  --     },
-  -- }
   -- Bottom status bar plugin
   use {
       'nvim-lualine/lualine.nvim',
