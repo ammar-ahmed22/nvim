@@ -11,7 +11,10 @@ return require('packer').startup(function(use)
   }
   -- Synthwave 84 theme
   use { "samharju/synthweave.nvim" }
+  -- Oxocarbon theme
   use { "nyoom-engineering/oxocarbon.nvim" }
+  -- Catpuccin theme
+  use { "catppuccin/nvim", as = "catppuccin" }
   -- AST generator for better syntax highlighting
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
   -- Git status page + other git commands
