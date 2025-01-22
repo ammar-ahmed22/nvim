@@ -131,4 +131,10 @@ return require('packer').startup(function(use)
         require("nvim-ts-autotag").setup()
       end
   }
+  use {
+      "nvimtools/none-ls.nvim",
+      requires = {
+          "nvimtools/none-ls-extras.nvim"
+      }
+  }
 end)
