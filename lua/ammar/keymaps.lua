@@ -15,6 +15,10 @@ vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { noremap = true, desc = "Git
 -- Git status
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git [S]tatus" })
 
+-- Git diff split
+vim.keymap.set("n", "<leader>gds", vim.cmd.Gdiffsplit, { desc = "[G]it [D]iff [S]plit" })
+
+-- Git branch
 vim.keymap.set("n", "<leader>gb", ":Git branch <CR>", { desc = "Git [B]ranch" })
 
 -- Window navigation
