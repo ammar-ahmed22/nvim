@@ -19,7 +19,7 @@ vim.keymap.set("n", "<leader>ga", ":Git add %<CR>", { desc = "[G]it [A]dd curren
 vim.keymap.set("n", "<leader>gr", ":Git restore %<CR>", { desc = "[G]it [R]estore current file"})
 
 -- Git unstage current file
-vim.keymap.set("n", "<leader>gus", ":Git restore --staged %<CR>", { desc = "[G]it [U]n[S]tage current file" })
+vim.keymap.set("n", "<leader>gus", ":Git restore --staged %<CR>-animation", { desc = "[G]it [U]n[S]tage current file" })
 
 -- Git push
 vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { noremap = true, desc = "Git [P]ush" })
@@ -72,3 +72,9 @@ vim.keymap.set('n', 'gff', "/", { noremap = true, desc = "[F]ind in file." })
 vim.keymap.set('n', '<leader>gf', function()
     vim.lsp.buf.format({ timeout_ms = 10000 })
 end, { desc = "[F]ormat the current buffer" })
+
+
+-- Search for selected text in visual mode
+vim.keymap.set('v', '/', "\"fy/\\V<C-R>f<CR>", { desc = "Search for the selected text" })
+
+
