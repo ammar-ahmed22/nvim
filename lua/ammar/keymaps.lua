@@ -16,10 +16,10 @@ vim.keymap.set("n", "<leader>gc", ":Commit<CR>", { desc = "[G]it [C]ommit" })
 vim.keymap.set("n", "<leader>ga", ":Git add %<CR>", { desc = "[G]it [A]dd current file"})
 
 -- Git restore current file
-vim.keymap.set("n", "<leader>gr", ":Git restore %", { desc = "[G]it [R]estore current file"})
+vim.keymap.set("n", "<leader>gr", ":Git restore %<CR>", { desc = "[G]it [R]estore current file"})
 
 -- Git unstage current file
-vim.keymap.set("n", "<leader>gus", ":Git restore --staged %", { desc = "[G]it [U]n[S]tage current file" })
+vim.keymap.set("n", "<leader>gus", ":Git restore --staged %<CR>", { desc = "[G]it [U]n[S]tage current file" })
 
 -- Git push
 vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { noremap = true, desc = "Git [P]ush" })
