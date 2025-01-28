@@ -7,7 +7,19 @@ vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "[Q]uit the focused window",
 vim.keymap.set("n", '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Git add and commit
-vim.keymap.set("n", "<leader>gac", ":AddCommit<CR>", { desc = "[G]it [A]dd and [C]ommit" })
+-- vim.keymap.set("n", "<leader>gac", ":AddCommit<CR>", { desc = "[G]it [A]dd and [C]ommit" })
+
+-- Git commit (prompts for input)
+vim.keymap.set("n", "<leader>gc", ":Commit<CR>", { desc = "[G]it [C]ommit" })
+
+-- Git add current file
+vim.keymap.set("n", "<leader>ga", ":Git add %<CR>", { desc = "[G]it [A]dd current file"})
+
+-- Git restore current file
+vim.keymap.set("n", "<leader>gr", ":Git restore %", { desc = "[G]it [R]estore current file"})
+
+-- Git unstage current file
+vim.keymap.set("n", "<leader>gus", ":Git restore --staged %", { desc = "[G]it [U]n[S]tage current file" })
 
 -- Git push
 vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { noremap = true, desc = "Git [P]ush" })
