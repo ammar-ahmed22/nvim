@@ -79,17 +79,17 @@ end, { desc = "[F]ormat the current buffer" })
 vim.keymap.set('v', '/', "\"fy/\\V<C-R>f<CR>", { desc = "Search for the selected text" })
 
 -- Close the currently open tab
-vim.keymap.set('n', '<leader>T', '<Cmd>BufferClose<CR>', { desc = "Close the [C]urrent [T]ab", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>bc', '<Cmd>BufferClose<CR>', { desc = "Close the [C]urrent [B]uffer", noremap = true, silent = true })
 -- Close all but the current tab
-vim.keymap.set('n', '<leader>ta', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = "Close all [O]ther tabs", noremap = true, silent = true })
--- Close tabs to the right
-vim.keymap.set('n', '<leader>tr', '<Cmd>BufferCloseBuffersRight<CR>', { desc = "Close tabs to the [R]ight", noremap = true, silent = true })
--- Close tabs to the left
-vim.keymap.set('n', '<leader>tl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = "Close tabs to the [R]ight", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>bo', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = "Close all [O]ther [B]uffers", noremap = true, silent = true })
+-- -- Close tabs to the right
+vim.keymap.set('n', '<leader>br', '<Cmd>BufferCloseBuffersRight<CR>', { desc = "Close [B]uffers to the [R]ight", noremap = true, silent = true })
+-- -- Close tabs to the left
+vim.keymap.set('n', '<leader>bl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = "Close [B]uffers to the [L]eft", noremap = true, silent = true })
 -- Navigate to the next tab
-vim.keymap.set('n', '<leader>t]', '<Cmd>BufferNext<CR>', { desc = "Navigate to the [N]ext [T]ab", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>t', '<Cmd>BufferNext<CR>', { desc = "Navigate to the [N]ext [T]ab", noremap = true, silent = true })
 -- Navigate to the previous tab
-vim.keymap.set('n', '<leader>t[', '<Cmd>BufferPrevious<CR>', { desc = "Navigate to the [P]revious [T]ab", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>T', '<Cmd>BufferPrevious<CR>', { desc = "Navigate to the [P]revious [T]ab", noremap = true, silent = true })
 -- Magic tab picker 
-vim.keymap.set('n', '<leader>tp', '<Cmd>BufferPick<CR>', { desc = "Pick a [T]ab", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>bp', '<Cmd>BufferPick<CR>', { desc = "[B]uffer [P]ick", noremap = true, silent = true })
 
