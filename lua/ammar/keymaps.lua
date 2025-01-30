@@ -79,7 +79,13 @@ end, { desc = "[F]ormat the current buffer" })
 vim.keymap.set('v', '/', "\"fy/\\V<C-R>f<CR>", { desc = "Search for the selected text" })
 
 -- Close the currently open tab
-vim.keymap.set('n', '<leader>tc', '<Cmd>BufferClose<CR>', { desc = "Close the [C]urrent [T]ab", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>T', '<Cmd>BufferClose<CR>', { desc = "Close the [C]urrent [T]ab", noremap = true, silent = true })
+-- Close all but the current tab
+vim.keymap.set('n', '<leader>ta', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = "Close all [O]ther tabs", noremap = true, silent = true })
+-- Close tabs to the right
+vim.keymap.set('n', '<leader>tr', '<Cmd>BufferCloseBuffersRight<CR>', { desc = "Close tabs to the [R]ight", noremap = true, silent = true })
+-- Close tabs to the left
+vim.keymap.set('n', '<leader>tl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = "Close tabs to the [R]ight", noremap = true, silent = true })
 -- Navigate to the next tab
 vim.keymap.set('n', '<leader>t]', '<Cmd>BufferNext<CR>', { desc = "Navigate to the [N]ext [T]ab", noremap = true, silent = true })
 -- Navigate to the previous tab
