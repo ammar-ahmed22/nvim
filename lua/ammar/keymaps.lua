@@ -52,9 +52,10 @@ vim.keymap.set('t', "<Esc>", '<C-\\><C-n>:q<CR>', { noremap = true, silent = tru
 vim.keymap.set('t', "<C-\\>", '<C-\\><C-n>:q<CR>', { noremap = true, silent = true })
 
 -- Opening terminal session in horizontal split window
-vim.keymap.set('n', '<leader>t', function()
-    vim.cmd("split | terminal")
-end, { noremap = true, silent = true, desc = "Start [T]erminal" })
+-- Just use a terminal cro
+-- vim.keymap.set('n', '<leader>t', function()
+--     vim.cmd("split | terminal")
+-- end, { noremap = true, silent = true, desc = "Start [T]erminal" })
 
 
 -- ChatGPT plugin keybinding
@@ -77,4 +78,12 @@ end, { desc = "[F]ormat the current buffer" })
 -- Search for selected text in visual mode
 vim.keymap.set('v', '/', "\"fy/\\V<C-R>f<CR>", { desc = "Search for the selected text" })
 
+-- Close the currently open tab
+vim.keymap.set('n', '<leader>tc', '<Cmd>BufferClose<CR>', { desc = "Close the [C]urrent [T]ab", noremap = true, silent = true })
+-- Navigate to the next tab
+vim.keymap.set('n', '<leader>t]', '<Cmd>BufferNext<CR>', { desc = "Navigate to the [N]ext [T]ab", noremap = true, silent = true })
+-- Navigate to the previous tab
+vim.keymap.set('n', '<leader>t[', '<Cmd>BufferPrevious<CR>', { desc = "Navigate to the [P]revious [T]ab", noremap = true, silent = true })
+-- Magic tab picker 
+vim.keymap.set('n', '<leader>tp', '<Cmd>BufferPick<CR>', { desc = "Pick a [T]ab", noremap = true, silent = true })
 

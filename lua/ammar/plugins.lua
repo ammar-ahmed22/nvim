@@ -143,4 +143,10 @@ return require('packer').startup(function(use)
         require("neoscroll").setup()
       end
   }
+  use {
+    "github/copilot.vim"
+  }
+  use {
+    "romgrk/barbar.nvim"
+  }
 end)
