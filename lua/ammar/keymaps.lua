@@ -34,7 +34,6 @@ vim.keymap.set("n", "<leader>gds", vim.cmd.Gdiffsplit, { desc = "[G]it [D]iff [S
 vim.keymap.set("n", "<leader>gb", ":Git branch <CR>", { desc = "Git [B]ranch" })
 
 -- Window navigation
-vim.keymap.set('n', '<leader>w', '<C-w>w', { desc = "Switch [W]indow (R-L)" })
 vim.keymap.set('n', '<leader>W', '<C-w>W', { desc = "Switch [W]indow (L-R)" })
 vim.keymap.set('n', '<leader>r', '<C-w>l', { desc = "Switch to the right window" })
 vim.keymap.set('n', '<leader>e', '<C-w>h', { desc = "Switch to the left window" })
@@ -79,7 +78,7 @@ end, { desc = "[F]ormat the current buffer" })
 vim.keymap.set('v', '/', "\"fy/\\V<C-R>f<CR>", { desc = "Search for the selected text" })
 
 -- Close the currently open tab
-vim.keymap.set('n', '<leader>bc', '<Cmd>BufferClose<CR>', { desc = "Close the [C]urrent [B]uffer", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>w', '<Cmd>BufferClose<CR>', { desc = "Close the current buffer", noremap = true, silent = true })
 -- Close all but the current tab
 vim.keymap.set('n', '<leader>bo', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = "Close all [O]ther [B]uffers", noremap = true, silent = true })
 -- -- Close tabs to the right
@@ -90,6 +89,16 @@ vim.keymap.set('n', '<leader>bl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = "C
 vim.keymap.set('n', '<leader>t', '<Cmd>BufferNext<CR>', { desc = "Navigate to the [N]ext [T]ab", noremap = true, silent = true })
 -- Navigate to the previous tab
 vim.keymap.set('n', '<leader>T', '<Cmd>BufferPrevious<CR>', { desc = "Navigate to the [P]revious [T]ab", noremap = true, silent = true })
--- Magic tab picker 
+-- Magic tab picker
 vim.keymap.set('n', '<leader>bp', '<Cmd>BufferPick<CR>', { desc = "[B]uffer [P]ick", noremap = true, silent = true })
 
+-- Go to buffer specified by number
+vim.keymap.set('n', '<leader>b1', '<Cmd>BufferGoto 1<CR>', { desc = "Go to buffer 1", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>b2', '<Cmd>BufferGoto 2<CR>', { desc = "Go to buffer 2", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>b3', '<Cmd>BufferGoto 3<CR>', { desc = "Go to buffer 3", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>b4', '<Cmd>BufferGoto 4<CR>', { desc = "Go to buffer 4", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>b5', '<Cmd>BufferGoto 5<CR>', { desc = "Go to buffer 5", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>b6', '<Cmd>BufferGoto 6<CR>', { desc = "Go to buffer 6", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>b7', '<Cmd>BufferGoto 7<CR>', { desc = "Go to buffer 7", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>b8', '<Cmd>BufferGoto 8<CR>', { desc = "Go to buffer 8", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>b9', '<Cmd>BufferGoto 9<CR>', { desc = "Go to buffer 9", noremap = true, silent = true })
