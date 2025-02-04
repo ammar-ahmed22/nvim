@@ -116,5 +116,3 @@ function HandleGitCommit()
 end
 
 vim.api.nvim_create_user_command("Commit", HandleGitCommit, { nargs = 0 })
-
--- vim.api.nvim_create_user_command("AddCommit", HandleGitAddAndCommit, { nargs = 0 })

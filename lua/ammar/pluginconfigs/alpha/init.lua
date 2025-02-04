@@ -112,7 +112,7 @@ dashboard.section.buttons.val = {
     dashboard.button( "⎵ + f",   "  Toggle file tree", ":Neotree focus toggle<CR>"),
     dashboard.button( "⎵ + /",   "  Find file", ":lua require'telescope.builtin'.find_files()<CR>"),
     dashboard.button( "⎵ + sg",  "  Find file with grep", ":lua require'telescope.builtin'.live_grep()<CR>"),
-    dashboard.button( "⎵ + gac", "  Git add and commit", ":AddCommit<CR>"),
+    dashboard.button( "⎵ + gc", "  Git commit", ":Commit<CR>"),
     dashboard.button( "⎵ + gs",  "  Git status", ":Git<CR>"),
     dashboard.button( "⎵ + cc",  "  Ask ChatGPT", ":ChatGPT<CR>"),
     dashboard.button( "⎵ + q",   "  Quit neovim" , ":qa<CR>"),

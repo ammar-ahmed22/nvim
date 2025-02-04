@@ -86,19 +86,19 @@ vim.keymap.set('n', '<leader>br', '<Cmd>BufferCloseBuffersRight<CR>', { desc = "
 -- -- Close tabs to the left
 vim.keymap.set('n', '<leader>bl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = "Close [B]uffers to the [L]eft", noremap = true, silent = true })
 -- Navigate to the next tab
-vim.keymap.set('n', '<leader>t', '<Cmd>BufferNext<CR>', { desc = "Navigate to the [N]ext [T]ab", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>]', '<Cmd>BufferNext<CR>', { desc = "Navigate to the [N]ext [T]ab", noremap = true, silent = true })
 -- Navigate to the previous tab
-vim.keymap.set('n', '<leader>T', '<Cmd>BufferPrevious<CR>', { desc = "Navigate to the [P]revious [T]ab", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>[', '<Cmd>BufferPrevious<CR>', { desc = "Navigate to the [P]revious [T]ab", noremap = true, silent = true })
 -- Magic tab picker
 vim.keymap.set('n', '<leader>bp', '<Cmd>BufferPick<CR>', { desc = "[B]uffer [P]ick", noremap = true, silent = true })
 
 -- Go to buffer specified by number
-vim.keymap.set('n', '<leader>b1', '<Cmd>BufferGoto 1<CR>', { desc = "Go to buffer 1", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>b2', '<Cmd>BufferGoto 2<CR>', { desc = "Go to buffer 2", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>b3', '<Cmd>BufferGoto 3<CR>', { desc = "Go to buffer 3", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>b4', '<Cmd>BufferGoto 4<CR>', { desc = "Go to buffer 4", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>b5', '<Cmd>BufferGoto 5<CR>', { desc = "Go to buffer 5", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>b6', '<Cmd>BufferGoto 6<CR>', { desc = "Go to buffer 6", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>b7', '<Cmd>BufferGoto 7<CR>', { desc = "Go to buffer 7", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>b8', '<Cmd>BufferGoto 8<CR>', { desc = "Go to buffer 8", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>b9', '<Cmd>BufferGoto 9<CR>', { desc = "Go to buffer 9", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>1', '<Cmd>BufferGoto 1<CR>', { desc = "Go to buffer 1", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>2', '<Cmd>BufferGoto 2<CR>', { desc = "Go to buffer 2", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>3', '<Cmd>BufferGoto 3<CR>', { desc = "Go to buffer 3", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>4', '<Cmd>BufferGoto 4<CR>', { desc = "Go to buffer 4", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>5', '<Cmd>BufferGoto 5<CR>', { desc = "Go to buffer 5", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>6', '<Cmd>BufferGoto 6<CR>', { desc = "Go to buffer 6", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', { desc = "Go to buffer 7", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', { desc = "Go to buffer 8", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>9', '<Cmd>BufferGoto 9<CR>', { desc = "Go to buffer 9", noremap = true, silent = true })
