@@ -1,5 +1,5 @@
 -- Open and focus the file tree
-vim.keymap.set("n", "<leader>f", ":Neotree focus toggle<CR>", { desc = "Toggle [F]ile tree", silent = true })
+vim.keymap.set("n", "<leader>t", ":Neotree focus toggle<CR>", { desc = "Toggle [F]ile tree", silent = true })
 -- Quit window
 vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "[Q]uit the focused window", silent = true })
 
@@ -102,3 +102,6 @@ vim.keymap.set('n', '<leader>6', '<Cmd>BufferGoto 6<CR>', { desc = "Go to buffer
 vim.keymap.set('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', { desc = "Go to buffer 7", noremap = true, silent = true })
 vim.keymap.set('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', { desc = "Go to buffer 8", noremap = true, silent = true })
 vim.keymap.set('n', '<leader>9', '<Cmd>BufferGoto 9<CR>', { desc = "Go to buffer 9", noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>fs", "<cmd>lua require('flash').jump()<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ft", "<cmd>lua require('flash').treesitter()<CR>", { noremap = true })

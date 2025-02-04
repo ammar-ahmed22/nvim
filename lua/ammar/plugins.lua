@@ -149,4 +149,10 @@ return require('packer').startup(function(use)
   use {
     "romgrk/barbar.nvim"
   }
+  use {
+    "folke/flash.nvim",
+    config = function ()
+      require('flash').setup()
+    end
+  }
 end)
