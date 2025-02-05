@@ -155,4 +155,11 @@ return require('packer').startup(function(use)
       require('flash').setup()
     end
   }
+  use {
+    "kylechui/nvim-surround",
+    tag = "*",
+    config = function ()
+      require('nvim-surround').setup()
+    end
+  }
 end)
