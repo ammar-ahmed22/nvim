@@ -162,4 +162,8 @@ return require('packer').startup(function(use)
       require('nvim-surround').setup()
     end
   }
+  use {
+    "kevinhwang91/nvim-ufo",
+    requires = "kevinhwang91/promise-async"
+  }
 end)
