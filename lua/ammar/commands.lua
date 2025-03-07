@@ -8,25 +8,26 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
--- Saves file if it is modified 
-local function save_if_modified()
-    if vim.bo.modified and vim.bo.buftype == "" and vim.bo.buftype ~= "TelescopePrompt" then
-        vim.cmd("write")
-    end
-end
-
--- Autosave if file is modified in normal or visual mode 
-vim.api.nvim_create_autocmd("TextChanged", {
-    pattern = "*",
-    callback = save_if_modified
-})
-
--- Autosave after insert mode is left (if the file is changed)
--- i.e. only save after insert mode is left and the file is changed
-vim.api.nvim_create_autocmd("InsertLeave", {
-    pattern = "*",
-    callback = save_if_modified
-})
+-- Uncomment below to re-nable autosave
+-- -- Saves file if it is modified 
+-- local function save_if_modified()
+--     if vim.bo.modified and vim.bo.buftype == "" and vim.bo.buftype ~= "TelescopePrompt" then
+--         vim.cmd("write")
+--     end
+-- end
+--
+-- -- Autosave if file is modified in normal or visual mode 
+-- vim.api.nvim_create_autocmd("TextChanged", {
+--     pattern = "*",
+--     callback = save_if_modified
+-- })
+--
+-- -- Autosave after insert mode is left (if the file is changed)
+-- -- i.e. only save after insert mode is left and the file is changed
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--     pattern = "*",
+--     callback = save_if_modified
+-- })
 
 -- Custom command functions for running stuff in the terminal 
 -- Used with :R/:Run 

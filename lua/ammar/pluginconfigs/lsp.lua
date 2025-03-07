@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP keybindings',
   callback = function(event)
-    local opts = {buffer = event.buf}
+    local opts = { buffer = event.buf }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -10,17 +10,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("n", "<leader>cf", function ()
-        vim.lsp.buf.code_action({
-            context = {
-                only = { "source.fixAll" }
-            },
-            apply = true
-        })
+    vim.keymap.set("n", "<leader>cf", function()
+      vim.lsp.buf.code_action({
+        context = {
+          only = { "source.fixAll" }
+        },
+        apply = true
+      })
     end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("n", "<leader>cw", function() vim.lsp.buf.format({ async = false }) end, opts)
   end
 })
 
@@ -31,12 +32,15 @@ lsp_capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true
 }
 
+require('mason-lspconfig').setup_handlers {
+  ['rust_analyzer'] = function() end,
+}
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
     'ts_ls',
     'lua_ls',
-    'rust_analyzer',
+    -- 'rust_analyzer',
     'tinymist',
     'pyright',
     'html',
@@ -57,7 +61,7 @@ require('mason-lspconfig').setup({
               version = 'LuaJIT',
             },
             diagnostics = {
-              globals = {'vim'}
+              globals = { 'vim' }
             },
             workspace = {
               library = {
@@ -72,16 +76,16 @@ require('mason-lspconfig').setup({
 })
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 --- loads custom snippets from friendly-snippets
 -- require('luasnip.loaders.from_vscode').lazy_load()
 
 cmp.setup({
   sources = {
-    {name = 'path'},
-    {name = 'nvim_lsp'},
-    {name = 'nvim_lua'},
+    { name = 'path' },
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
     -- {name = 'buffer', keyword_length = 3},
     -- {name = 'luasnip', keyword_length = 2},
   },
@@ -98,7 +102,7 @@ cmp.setup({
   },
   snippet = {
     expand = function(args)
-    	require('luasnip').lsp_expand(args.body)
+      require('luasnip').lsp_expand(args.body)
     end,
   },
 })
