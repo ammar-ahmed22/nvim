@@ -169,4 +169,8 @@ return require('packer').startup(function(use)
   use {
     'mrcjkb/rustaceanvim'
   }
+  use {
+    'mg979/vim-visual-multi',
+    branch = 'master'
+  }
 end)
