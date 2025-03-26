@@ -3,6 +3,9 @@ vim.keymap.set("n", "<leader>t", ":Neotree focus toggle<CR>", { desc = "Toggle [
 -- Quit window
 vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "[Q]uit the focused window", silent = true })
 
+-- Save buffer
+vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "[S]ave the current buffer", silent = true, noremap = true })
+
 -- Escape in normal mode to remove search higlight
 vim.keymap.set("n", '<Esc>', '<cmd>nohlsearch<CR>')
 
