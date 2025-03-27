@@ -79,3 +79,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, {
     pattern = "*",
     command = "checktime",
 })
+
+-- Copilot nvm version (may need to remove this on machines that are not using nvm)
+vim.g.copilot_node_command = "~/.nvm/versions/node/v20.18.1/bin/node"
