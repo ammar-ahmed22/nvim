@@ -173,4 +173,21 @@ return require('packer').startup(function(use)
     'mg979/vim-visual-multi',
     branch = 'master'
   }
+  use {
+    'yetone/avante.nvim',
+    branch = 'main',
+    run = 'make',
+    requires = {
+      'nvim-treesitter/nvim-treesitter',
+      'stevearc/dressing.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'MeanderingProgrammer/render-markdown.nvim'
+    },
+    config = function ()
+      require('avante').setup({
+        provider = "openai"
+      })
+    end
+  }
 end)
