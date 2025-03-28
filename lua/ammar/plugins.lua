@@ -66,9 +66,6 @@ return require('packer').startup(function(use)
   -- Git signs beside lines
   use {
       'lewis6991/gitsigns.nvim',
-      config = function ()
-        require('gitsigns').setup()
-      end
   }
   -- Help menu for keybindings
   use {
