@@ -89,9 +89,9 @@ vim.keymap.set('n', '<leader>br', '<Cmd>BufferCloseBuffersRight<CR>', { desc = "
 -- -- Close tabs to the left
 vim.keymap.set('n', '<leader>bl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = "Close [B]uffers to the [L]eft", noremap = true, silent = true })
 -- Navigate to the next tab
-vim.keymap.set('n', '<leader>]', '<Cmd>BufferNext<CR>', { desc = "Navigate to the [N]ext [T]ab", noremap = true, silent = true })
+vim.keymap.set('n', ']t', '<Cmd>BufferNext<CR>', { desc = "Navigate to the next [T]ab", noremap = true, silent = true })
 -- Navigate to the previous tab
-vim.keymap.set('n', '<leader>[', '<Cmd>BufferPrevious<CR>', { desc = "Navigate to the [P]revious [T]ab", noremap = true, silent = true })
+vim.keymap.set('n', '[t', '<Cmd>BufferPrevious<CR>', { desc = "Navigate to the previous [T]ab", noremap = true, silent = true })
 -- Magic tab picker
 vim.keymap.set('n', '<leader>bp', '<Cmd>BufferPick<CR>', { desc = "[B]uffer [P]ick", noremap = true, silent = true })
 
