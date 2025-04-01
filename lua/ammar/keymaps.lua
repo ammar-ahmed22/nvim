@@ -112,3 +112,6 @@ vim.keymap.set("n", "<leader>ft", "<cmd>lua require('flash').treesitter()<CR>", 
 -- Multi-cursor
 vim.keymap.set("n", "<C-j>", "<Plug>(VM-Add-Cursor-Down)", { noremap = false })
 vim.keymap.set("n", "<C-k>", "<Plug>(VM-Add-Cursor-Up)", { noremap = false })
+
+-- Print working file
+vim.keymap.set("n", "<leader>pw", ":echo expand('%:p')<CR>", { noremap = true, desc = "Print the working file" })
