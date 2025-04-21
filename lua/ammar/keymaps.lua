@@ -37,9 +37,8 @@ vim.keymap.set("n", "<leader>gds", vim.cmd.Gdiffsplit, { desc = "[G]it [D]iff [S
 vim.keymap.set("n", "<leader>gb", ":Git branch <CR>", { desc = "Git [B]ranch" })
 
 -- Window navigation
-vim.keymap.set('n', '<leader>W', '<C-w>W', { desc = "Switch [W]indow (L-R)" })
-vim.keymap.set('n', '<leader>r', '<C-w>l', { desc = "Switch to the right window" })
-vim.keymap.set('n', '<leader>e', '<C-w>h', { desc = "Switch to the left window" })
+vim.keymap.set('n', ']w', '<C-w>W', { desc = "Switch [W]indow (L-R)" })
+vim.keymap.set('n', '[w', '<C-w>w', { desc = "Switch [W]indow (R-L)" })
 
 -- New vertical window (that's the one I'll be using exclusively)
 vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = "New [V]ertical Window" })
