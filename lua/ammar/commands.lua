@@ -105,3 +105,55 @@ function HandleGitCommit()
 end
 
 vim.api.nvim_create_user_command("Commit", HandleGitCommit, { nargs = 0 })
+vim.api.nvim_create_user_command("Aider", function(args)
+    local arguments = (#args.fargs > 0) and table.concat(args.fargs, " ") or ""
+    local cmd = "aider" .. (arguments ~= "" and (" " .. arguments) or "")
+    vim.cmd("vsplit")
+    vim.cmd("terminal " .. cmd)
+    local term_buf = vim.api.nvim_get_current_buf()
+    vim.api.nvim_buf_set_option(term_buf, "bufhidden", "hide")
+    vim.g.aider_buf = term_buf
+    vim.api.nvim_create_autocmd("TermClose", {
+         buffer = term_buf,
+         callback = function(event)
+             vim.api.nvim_buf_delete(event.buf, { force = true })
+             if vim.g.aider_buf == event.buf then
+                 vim.g.aider_buf = nil
+             end
+         end,
+    })
+end, { nargs = "*" })
+vim.api.nvim_create_user_command("AiderAdd", function()
+    local path = vim.api.nvim_buf_get_name(0)
+    if path == "" then
+        print("Current buffer has no path.")
+        return
+    end
+    if vim.g.aider_buf and vim.api.nvim_buf_is_valid(vim.g.aider_buf) then
+        local job_id = vim.b[vim.g.aider_buf].terminal_job_id
+        if job_id then
+            vim.fn.chansend(job_id, "/add " .. path .. "\n")
+        else
+            print("Aider terminal job not found.")
+        end
+    else
+        print("No open Aider terminal.")
+    end
+end, { nargs = 0 })
+vim.api.nvim_create_user_command("AiderDrop", function()
+    local path = vim.api.nvim_buf_get_name(0)
+    if path == "" then
+        print("Current buffer has no path.")
+        return
+    end
+    if vim.g.aider_buf and vim.api.nvim_buf_is_valid(vim.g.aider_buf) then
+        local job_id = vim.b[vim.g.aider_buf].terminal_job_id
+        if job_id then
+            vim.fn.chansend(job_id, "/drop " .. path .. "\n")
+        else
+            print("Aider terminal job not found.")
+        end
+    else
+        print("No open Aider terminal.")
+    end
+end, { nargs = 0 })
