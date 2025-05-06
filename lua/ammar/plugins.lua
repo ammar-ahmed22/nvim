@@ -101,7 +101,7 @@ return require('packer').startup(function(use)
       }
   }
   -- Command autocomplete
-  use {'~/Documents/Projects/nvim/command-completion.nvim'}
+  use {'ammar-ahmed22/command-completion.nvim'}
   use {
       'goolord/alpha-nvim',
   }
