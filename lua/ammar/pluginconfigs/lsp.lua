@@ -73,15 +73,25 @@ require('mason-lspconfig').setup({
       })
     end,
   },
-  ["rust_analyzer"] = function ()
-    require("lspconfig").rust_analyzer.setup({
-      settings = {
-        ["rust_analyzer"] = {
-          cargo = { allFeatures = true }
-        }
-      }
-    })
-  end
+})
+
+-- Setup dartls separately since it's not managed by Mason
+lspconfig.dartls.setup({
+  capabilities = lsp_capabilities,
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  init_options = {
+    closingLabels = true,
+    flutterOutline = true,
+    outline = true,
+    onlyAnalyzeProjectsWithOpenFiles = true,
+    suggestFromUnimportedLibraries = true,
+  },
+  settings = {
+    dart = {
+      completeFunctionCalls = true,
+      showInspectorNotificationsForWidgetErrors = true,
+    }
+  }
 })
 
 local cmp = require('cmp')
