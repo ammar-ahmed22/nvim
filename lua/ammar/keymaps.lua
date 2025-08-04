@@ -59,8 +59,8 @@ vim.keymap.set('t', "<C-\\>", '<C-\\><C-n>:q<CR>', { noremap = true, silent = tr
 -- end, { noremap = true, silent = true, desc = "Start [T]erminal" })
 
 
--- ChatGPT plugin keybinding
-vim.keymap.set('n', "<leader>cc", ":ChatGPT<CR>", { noremap = true, silent = true, desc = "Open [C]hatGPT [C]hat" })
+-- Claude Code plugin keybinding
+vim.keymap.set('n', "<leader>cc", ":ClaudeCode<CR>", { noremap = true, silent = true, desc = "Open [C]laude [C]ode" })
 
 -- Alpha as home
 vim.keymap.set('n', "<leader>h", ":Alpha<CR>", { noremap = true, silent = true, desc = "Return to [H]ome screen" })
