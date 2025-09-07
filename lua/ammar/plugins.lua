@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
   -- Windows for search and chat gpt as well
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
-    requires = { { 'nvim-lua/plenary.nvim' } },
+    requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-telescope/telescope-ui-select.nvim' } },
   }
   -- Synthwave 84 theme
   use { "samharju/synthweave.nvim" }

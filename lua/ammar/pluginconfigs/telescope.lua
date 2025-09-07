@@ -3,6 +3,7 @@ require("telescope").setup({
     borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
   }
 })
+require("telescope").load_extension("ui-select")
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<leader>/', function ()
   builtin.find_files({

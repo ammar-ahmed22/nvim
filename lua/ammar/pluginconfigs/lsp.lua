@@ -10,6 +10,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
+    -- vim.keymap.set("n", "<leader>ca", require('telescope.builtin').lsp_code_actions, opts)
     vim.keymap.set("n", "<leader>cf", function()
       vim.lsp.buf.code_action({
         context = {
@@ -124,4 +125,12 @@ cmp.setup({
       require('luasnip').lsp_expand(args.body)
     end,
   },
+})
+
+-- Diagnostics configuration: keep signs but use underlines per severity
+vim.diagnostic.config({
+  underline = { severity = { min = vim.diagnostic.severity.HINT } },
+  virtual_text = true,
+  signs = true,
+  update_in_insert = false,
 })
