@@ -1,3 +1,6 @@
 require("todo-comments").setup()
 
-vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "[S]earch [T]ODO comments" })
+local commander = require("commander")
+commander.add({
+  { desc = "Search TODO comments", cat = "TODO", keys = { "n", "<leader>st" }, cmd = "<cmd>TodoTelescope<cr>" },
+})

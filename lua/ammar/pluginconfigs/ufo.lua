@@ -3,8 +3,11 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+local commander = require("commander")
+commander.add({
+  { desc = "Open all folds", cat = "UFO", keys = { 'n', 'zR' }, cmd = function() require('ufo').openAllFolds() end },
+  { desc = "Close all folds", cat = "UFO", keys = { 'n', 'zM' }, cmd = function() require('ufo').closeAllFolds() end },
+})
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}

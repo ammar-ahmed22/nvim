@@ -86,4 +86,7 @@ end
 
 -- Create a user command
 vim.api.nvim_create_user_command("PromptCreator", prompt_creator, {})
-vim.keymap.set("n", "<leader>nf", ":PromptCreator<CR>", { desc = "[N]ew [F]ile or Directory Prompt"})
+local commander = require("commander")
+commander.add({
+  { desc = "New File/Dir Prompt", cat = "Creator", keys = { "n", "<leader>nf" }, cmd = ":PromptCreator<CR>" },
+})

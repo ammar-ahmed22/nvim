@@ -1,116 +1,80 @@
--- Open and focus the file tree
-vim.keymap.set("n", "<leader>t", ":Neotree focus toggle<CR>", { desc = "Toggle [F]ile tree", silent = true })
--- Quit window
-vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "[Q]uit the focused window", silent = true })
+-- Converted to commander-managed keymaps
+local commander = require("commander")
 
--- Save buffer
-vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "[S]ave the current buffer", silent = true, noremap = true })
+commander.add({
+  -- File Tree
+  { desc = "Toggle File tree", cmd = ":Neotree focus toggle<CR>", keys = { "n", "<leader>t", { silent = true } }, cat = "File Tree" },
 
--- Escape in normal mode to remove search higlight
-vim.keymap.set("n", '<Esc>', '<cmd>nohlsearch<CR>')
+  -- Windows
+  { desc = "Quit the focused window", cmd = "<C-w>q", keys = { "n", "<leader>q", { silent = true } }, cat = "Window" },
+  { desc = "New Vertical Window", cmd = ":vsplit<CR>", keys = { "n", "<leader>v" }, cat = "Window" },
+  { desc = "Switch Window (L-R)", cmd = "<C-w>W", keys = { "n", "]w" }, cat = "Window" },
+  { desc = "Switch Window (R-L)", cmd = "<C-w>w", keys = { "n", "[w" }, cat = "Window" },
 
--- Git add and commit
--- vim.keymap.set("n", "<leader>gac", ":AddCommit<CR>", { desc = "[G]it [A]dd and [C]ommit" })
+  -- Save
+  { desc = "Save current buffer", cmd = ":w<CR>", keys = { "n", "<C-s>", { silent = true, noremap = true } }, cat = "File" },
 
--- Git commit (prompts for input)
-vim.keymap.set("n", "<leader>gc", ":Commit<CR>", { desc = "[G]it [C]ommit" })
+  -- Search
+  { desc = "Clear search highlight", cmd = "<cmd>nohlsearch<CR>", keys = { "n", "<Esc>" }, cat = "Search" },
+  { desc = "Find and replace in file", cmd = ":%s/", keys = { "n", "gfr", { noremap = true } }, cat = "Search" },
+  { desc = "Find in file", cmd = "/", keys = { "n", "gff", { noremap = true } }, cat = "Search" },
+  { desc = "Search for selected text", cmd = "\"fy/\\V<C-R>f<CR>", keys = { "v", "/" }, cat = "Search" },
 
--- Git add current file
-vim.keymap.set("n", "<leader>ga", ":Git add %<CR>", { desc = "[G]it [A]dd current file"})
+  -- Git (Fugitive)
+  -- { desc = "Git Add and Commit", cmd = ":AddCommit<CR>", keys = { "n", "<leader>gac" }, cat = "Git" },
+  { desc = "Git Commit", cmd = ":Commit<CR>", keys = { "n", "<leader>gc" }, cat = "Git" },
+  { desc = "Git Add current file", cmd = ":Git add %<CR>", keys = { "n", "<leader>ga" }, cat = "Git" },
+  { desc = "Git Restore current file", cmd = ":Git restore %<CR>", keys = { "n", "<leader>gr" }, cat = "Git" },
+  { desc = "Git Unstage current file", cmd = ":Git restore --staged %<CR>", keys = { "n", "<leader>gus" }, cat = "Git" },
+  { desc = "Git Push", cmd = ":Git push<CR>", keys = { "n", "<leader>gp", { noremap = true } }, cat = "Git" },
+  { desc = "Git Status", cmd = vim.cmd.Git, keys = { "n", "<leader>gs" }, cat = "Git" },
+  { desc = "Git Diff Split", cmd = vim.cmd.Gdiffsplit, keys = { "n", "<leader>gds" }, cat = "Git" },
+  { desc = "Git Branch", cmd = ":Git branch <CR>", keys = { "n", "<leader>gb" }, cat = "Git" },
 
--- Git restore current file
-vim.keymap.set("n", "<leader>gr", ":Git restore %<CR>", { desc = "[G]it [R]estore current file"})
+  -- Paging center cursor
+  { desc = "Page down (center)", cmd = "<C-d>zz", keys = { "n", "<C-d>" }, cat = "Navigation" },
+  { desc = "Page up (center)", cmd = "<C-u>zz", keys = { "n", "<C-u>" }, cat = "Navigation" },
 
--- Git unstage current file
-vim.keymap.set("n", "<leader>gus", ":Git restore --staged %<CR>-animation", { desc = "[G]it [U]n[S]tage current file" })
+  -- Terminal
+  { desc = "Close terminal", cmd = '<C-\\><C-n>:q<CR>', keys = { "t", "<Esc>", { noremap = true, silent = true } }, cat = "Terminal" },
+  { desc = "Close terminal", cmd = '<C-\\><C-n>:q<CR>', keys = { "t", "<C-\\>", { noremap = true, silent = true } }, cat = "Terminal" },
 
--- Git push
-vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { noremap = true, desc = "Git [P]ush" })
+  -- Tools
+  { desc = "Open Claude Code", cmd = ":ClaudeCode<CR>", keys = { "n", "<leader>cc", { noremap = true, silent = true } }, cat = "Tools" },
+  { desc = "Home Screen", cmd = ":Alpha<CR>", keys = { "n", "<leader>h", { noremap = true, silent = true } }, cat = "Tools" },
 
--- Git status
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git [S]tatus" })
+  -- Editing
+  { desc = "New line under current", cmd = "o<C-c>", keys = { "n", "<leader>nl", { noremap = true, silent = true } }, cat = "Editing" },
+  { desc = "Format current buffer", cmd = function() vim.lsp.buf.format({ timeout_ms = 10000 }) end, keys = { "n", "<leader>gf" }, cat = "LSP" },
 
--- Git diff split
-vim.keymap.set("n", "<leader>gds", vim.cmd.Gdiffsplit, { desc = "[G]it [D]iff [S]plit" })
+  -- Buffers (barbar)
+  { desc = "Close current buffer", cmd = "<Cmd>BufferClose<CR>", keys = { "n", "<leader>w", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Close all other buffers", cmd = "<Cmd>BufferCloseAllButCurrent<CR>", keys = { "n", "<leader>bo", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Close buffers to the right", cmd = "<Cmd>BufferCloseBuffersRight<CR>", keys = { "n", "<leader>br", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Close buffers to the left", cmd = "<Cmd>BufferCloseBuffersLeft<CR>", keys = { "n", "<leader>bl", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Next buffer", cmd = "<Cmd>BufferNext<CR>", keys = { "n", "]t", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Previous buffer", cmd = "<Cmd>BufferPrevious<CR>", keys = { "n", "[t", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Buffer pick", cmd = "<Cmd>BufferPick<CR>", keys = { "n", "<leader>bp", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Go to buffer 1", cmd = "<Cmd>BufferGoto 1<CR>", keys = { "n", "<leader>1", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Go to buffer 2", cmd = "<Cmd>BufferGoto 2<CR>", keys = { "n", "<leader>2", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Go to buffer 3", cmd = "<Cmd>BufferGoto 3<CR>", keys = { "n", "<leader>3", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Go to buffer 4", cmd = "<Cmd>BufferGoto 4<CR>", keys = { "n", "<leader>4", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Go to buffer 5", cmd = "<Cmd>BufferGoto 5<CR>", keys = { "n", "<leader>5", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Go to buffer 6", cmd = "<Cmd>BufferGoto 6<CR>", keys = { "n", "<leader>6", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Go to buffer 7", cmd = "<Cmd>BufferGoto 7<CR>", keys = { "n", "<leader>7", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Go to buffer 8", cmd = "<Cmd>BufferGoto 8<CR>", keys = { "n", "<leader>8", { noremap = true, silent = true } }, cat = "Buffers" },
+  { desc = "Go to buffer 9", cmd = "<Cmd>BufferGoto 9<CR>", keys = { "n", "<leader>9", { noremap = true, silent = true } }, cat = "Buffers" },
 
--- Git branch
-vim.keymap.set("n", "<leader>gb", ":Git branch <CR>", { desc = "Git [B]ranch" })
+  -- Flash
+  { desc = "Flash jump", cmd = function() require('flash').jump() end, keys = { "n", "<leader>fs", { noremap = true } }, cat = "Flash" },
+  { desc = "Flash treesitter", cmd = function() require('flash').treesitter() end, keys = { "n", "<leader>ft", { noremap = true } }, cat = "Flash" },
 
--- Window navigation
-vim.keymap.set('n', ']w', '<C-w>W', { desc = "Switch [W]indow (L-R)" })
-vim.keymap.set('n', '[w', '<C-w>w', { desc = "Switch [W]indow (R-L)" })
+  -- Multi-cursor (vim-visual-multi)
+  { desc = "Add cursor down", cmd = "<Plug>(VM-Add-Cursor-Down)", keys = { "n", "<C-j>", { noremap = false } }, cat = "Multi-cursor" },
+  { desc = "Add cursor up", cmd = "<Plug>(VM-Add-Cursor-Up)", keys = { "n", "<C-k>", { noremap = false } }, cat = "Multi-cursor" },
 
--- New vertical window (that's the one I'll be using exclusively)
-vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = "New [V]ertical Window" })
+  -- Copilot
+  { desc = "Disable copilot", cmd = ":Copilot disable<CR>", keys = { "n", "<leader>cd", { noremap = true, silent = true } }, cat = "Copilot" },
+  { desc = "Enable copilot", cmd = ":Copilot enable<CR>", keys = { "n", "<leader>ce", { noremap = true, silent = true } }, cat = "Copilot" },
+})
 
-
--- Page up and down center cursor
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
--- Closing terminal in insert mode
-vim.keymap.set('t', "<Esc>", '<C-\\><C-n>:q<CR>', { noremap = true, silent = true })
-vim.keymap.set('t', "<C-\\>", '<C-\\><C-n>:q<CR>', { noremap = true, silent = true })
-
--- Opening terminal session in horizontal split window
--- Just use a terminal cro
--- vim.keymap.set('n', '<leader>t', function()
---     vim.cmd("split | terminal")
--- end, { noremap = true, silent = true, desc = "Start [T]erminal" })
-
-
--- Claude Code plugin keybinding
-vim.keymap.set('n', "<leader>cc", ":ClaudeCode<CR>", { noremap = true, silent = true, desc = "Open [C]laude [C]ode" })
-
--- Alpha as home
-vim.keymap.set('n', "<leader>h", ":Alpha<CR>", { noremap = true, silent = true, desc = "Return to [H]ome screen" })
-
--- Newline under current line in normal mode
-vim.keymap.set('n', "<leader>nl", "o<C-c>", { noremap = true, silent = true, desc = "[N]ew [L]ine under current" })
-
-vim.keymap.set('n', "gfr", ":%s/", { noremap = true, desc = "[F]ind and replace in file." })
-vim.keymap.set('n', 'gff', "/", { noremap = true, desc = "[F]ind in file." })
-
-vim.keymap.set('n', '<leader>gf', function()
-    vim.lsp.buf.format({ timeout_ms = 10000 })
-end, { desc = "[F]ormat the current buffer" })
-
-
--- Search for selected text in visual mode
-vim.keymap.set('v', '/', "\"fy/\\V<C-R>f<CR>", { desc = "Search for the selected text" })
-
--- Close the currently open tab
-vim.keymap.set('n', '<leader>w', '<Cmd>BufferClose<CR>', { desc = "Close the current buffer", noremap = true, silent = true })
--- Close all but the current tab
-vim.keymap.set('n', '<leader>bo', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = "Close all [O]ther [B]uffers", noremap = true, silent = true })
--- -- Close tabs to the right
-vim.keymap.set('n', '<leader>br', '<Cmd>BufferCloseBuffersRight<CR>', { desc = "Close [B]uffers to the [R]ight", noremap = true, silent = true })
--- -- Close tabs to the left
-vim.keymap.set('n', '<leader>bl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = "Close [B]uffers to the [L]eft", noremap = true, silent = true })
--- Navigate to the next tab
-vim.keymap.set('n', ']t', '<Cmd>BufferNext<CR>', { desc = "Navigate to the next [T]ab", noremap = true, silent = true })
--- Navigate to the previous tab
-vim.keymap.set('n', '[t', '<Cmd>BufferPrevious<CR>', { desc = "Navigate to the previous [T]ab", noremap = true, silent = true })
--- Magic tab picker
-vim.keymap.set('n', '<leader>bp', '<Cmd>BufferPick<CR>', { desc = "[B]uffer [P]ick", noremap = true, silent = true })
-
--- Go to buffer specified by number
-vim.keymap.set('n', '<leader>1', '<Cmd>BufferGoto 1<CR>', { desc = "Go to buffer 1", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>2', '<Cmd>BufferGoto 2<CR>', { desc = "Go to buffer 2", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>3', '<Cmd>BufferGoto 3<CR>', { desc = "Go to buffer 3", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>4', '<Cmd>BufferGoto 4<CR>', { desc = "Go to buffer 4", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>5', '<Cmd>BufferGoto 5<CR>', { desc = "Go to buffer 5", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>6', '<Cmd>BufferGoto 6<CR>', { desc = "Go to buffer 6", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', { desc = "Go to buffer 7", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', { desc = "Go to buffer 8", noremap = true, silent = true })
-vim.keymap.set('n', '<leader>9', '<Cmd>BufferGoto 9<CR>', { desc = "Go to buffer 9", noremap = true, silent = true })
-
-vim.keymap.set("n", "<leader>fs", "<cmd>lua require('flash').jump()<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>ft", "<cmd>lua require('flash').treesitter()<CR>", { noremap = true })
-
--- Multi-cursor
-vim.keymap.set("n", "<C-j>", "<Plug>(VM-Add-Cursor-Down)", { noremap = false })
-vim.keymap.set("n", "<C-k>", "<Plug>(VM-Add-Cursor-Up)", { noremap = false })
-
--- Print working file
-vim.keymap.set("n", "<leader>pw", ":echo expand('%:p')<CR>", { noremap = true, desc = "Print the working file" })

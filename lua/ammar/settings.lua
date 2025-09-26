@@ -38,7 +38,6 @@ vim.opt.wrap = true;
 vim.opt.undofile = true;
 
 -- Search
-vim.keymap.set("n", '<Esc>', '<cmd>nohlsearch<CR>')
 vim.opt.incsearch = true;
 vim.opt.ignorecase = true;
 vim.opt.smartcase = true;
@@ -58,7 +57,7 @@ vim.opt.updatetime = 50;
 vim.opt.signcolumn = 'yes';
 
 -- Timeout for mapped sequences
-vim.opt.timeoutlen = 100;
+vim.opt.timeoutlen = 300;
 
 
 -- Configure how new splits should be opened

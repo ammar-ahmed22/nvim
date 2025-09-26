@@ -1,28 +1,25 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP keybindings',
   callback = function(event)
-    local opts = { buffer = event.buf }
+    local commander = require('commander')
+    local bufopt = { buffer = event.buf }
 
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-    -- vim.keymap.set("n", "<leader>ca", require('telescope.builtin').lsp_code_actions, opts)
-    vim.keymap.set("n", "<leader>cf", function()
-      vim.lsp.buf.code_action({
-        context = {
-          only = { "source.fixAll" }
-        },
-        apply = true
-      })
-    end, opts)
-    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-    vim.keymap.set("n", "<leader>cw", function() vim.lsp.buf.format({ async = false }) end, opts)
+    commander.add({
+      { desc = 'LSP Definition', cat = 'LSP', keys = { 'n', 'gd', bufopt }, cmd = function() vim.lsp.buf.definition() end },
+      { desc = 'LSP Hover', cat = 'LSP', keys = { 'n', 'K', bufopt }, cmd = function() vim.lsp.buf.hover() end },
+      { desc = 'LSP Workspace Symbols', cat = 'LSP', keys = { 'n', '<leader>vws', bufopt }, cmd = function() vim.lsp.buf.workspace_symbol() end },
+      { desc = 'Diagnostics Float', cat = 'LSP', keys = { 'n', '<leader>vd', bufopt }, cmd = function() vim.diagnostic.open_float() end },
+      { desc = 'Diagnostics Prev', cat = 'LSP', keys = { 'n', '[d', bufopt }, cmd = function() vim.diagnostic.goto_prev() end },
+      { desc = 'Diagnostics Next', cat = 'LSP', keys = { 'n', ']d', bufopt }, cmd = function() vim.diagnostic.goto_next() end },
+      { desc = 'Code Action', cat = 'LSP', keys = { 'n', '<leader>ca', bufopt }, cmd = function() vim.lsp.buf.code_action() end },
+      { desc = 'Fix All', cat = 'LSP', keys = { 'n', '<leader>cf', bufopt }, cmd = function()
+          vim.lsp.buf.code_action({ context = { only = { 'source.fixAll' } }, apply = true })
+        end },
+      { desc = 'References', cat = 'LSP', keys = { 'n', '<leader>vrr', bufopt }, cmd = function() vim.lsp.buf.references() end },
+      { desc = 'Rename', cat = 'LSP', keys = { 'n', '<leader>vrn', bufopt }, cmd = function() vim.lsp.buf.rename() end },
+      { desc = 'Signature Help', cat = 'LSP', keys = { 'i', '<C-h>', bufopt }, cmd = function() vim.lsp.buf.signature_help() end },
+      { desc = 'Format Buffer', cat = 'LSP', keys = { 'n', '<leader>cw', bufopt }, cmd = function() vim.lsp.buf.format({ async = false }) end },
+    })
   end
 })
 

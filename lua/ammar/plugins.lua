@@ -196,14 +196,32 @@ return require('packer').startup(function(use)
     run = ":UpdateRemotePlugins",
     config = function()
       -- set globals (examples; all are optional)
-      vim.g.molten_image_provider = "none"-- or "wezterm" or "none"
+      vim.g.molten_image_provider = "none" -- or "wezterm" or "none"
       vim.g.molten_auto_open_output = true
 
-      -- handy keymaps
-      vim.keymap.set("n", "<localleader>mi", ":MoltenInit python3<CR>", { silent = true })
-      vim.keymap.set("n", "<localleader>rl", ":MoltenEvaluateLine<CR>", { silent = true })
-      vim.keymap.set("v", "<localleader>rv", ":<C-u>MoltenEvaluateVisual<CR>gv", { silent = true })
-      vim.keymap.set("n", "<localleader>oo", ":noautocmd MoltenEnterOutput<CR>", { silent = true })
+      -- handy keymaps via commander
+      local commander = require("commander")
+      commander.add({
+        { desc = "Molten Init python3",    cat = "Molten", keys = { "n", "<localleader>mi", { silent = true } }, cmd = ":MoltenInit python3<CR>" },
+        { desc = "Molten Evaluate Line",   cat = "Molten", keys = { "n", "<localleader>rl", { silent = true } }, cmd = ":MoltenEvaluateLine<CR>" },
+        { desc = "Molten Evaluate Visual", cat = "Molten", keys = { "v", "<localleader>rv", { silent = true } }, cmd = ":<C-u>MoltenEvaluateVisual<CR>gv" },
+        { desc = "Molten Enter Output",    cat = "Molten", keys = { "n", "<localleader>oo", { silent = true } }, cmd = ":noautocmd MoltenEnterOutput<CR>" },
+      })
     end,
+  }
+  use {
+    "FeiyouG/commander.nvim",
+    requires = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("commander").setup()
+      -- commander.add expects a list of items; wrap the item in an extra table
+      require("commander").add({
+        {
+          desc = "Open commander",
+          cmd = require("commander").show,
+          keys = { "n", "<leader>p", { noremap = true, silent = true } },
+        }
+      })
+    end
   }
 end)
