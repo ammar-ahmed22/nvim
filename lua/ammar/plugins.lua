@@ -224,4 +224,11 @@ return require('packer').startup(function(use)
       })
     end
   }
+  use {
+    'chomosuke/typst-preview.nvim',
+    tag = 'v1.*',
+    config = function()
+      require 'typst-preview'.setup {}
+    end,
+  }
 end)

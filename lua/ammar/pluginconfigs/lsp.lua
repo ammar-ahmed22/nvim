@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-local lspconfig = require('lspconfig')
+local lspconfig = vim.lsp.config
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 lsp_capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
@@ -73,24 +73,24 @@ require('mason-lspconfig').setup({
   },
 })
 
--- Setup dartls separately since it's not managed by Mason
-lspconfig.dartls.setup({
-  capabilities = lsp_capabilities,
-  cmd = { "dart", "language-server", "--protocol=lsp" },
-  init_options = {
-    closingLabels = true,
-    flutterOutline = true,
-    outline = true,
-    onlyAnalyzeProjectsWithOpenFiles = true,
-    suggestFromUnimportedLibraries = true,
-  },
-  settings = {
-    dart = {
-      completeFunctionCalls = true,
-      showInspectorNotificationsForWidgetErrors = true,
-    }
-  }
-})
+-- Setup dartls separately since it's not managed by Mason (TODO: figure this out with the new vim.lsp.config syntax instead of require('lspconfig'))
+-- lspconfig.dartls.setup({
+--   capabilities = lsp_capabilities,
+--   cmd = { "dart", "language-server", "--protocol=lsp" },
+--   init_options = {
+--     closingLabels = true,
+--     flutterOutline = true,
+--     outline = true,
+--     onlyAnalyzeProjectsWithOpenFiles = true,
+--     suggestFromUnimportedLibraries = true,
+--   },
+--   settings = {
+--     dart = {
+--       completeFunctionCalls = true,
+--       showInspectorNotificationsForWidgetErrors = true,
+--     }
+--   }
+-- })
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
