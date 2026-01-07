@@ -42,7 +42,8 @@ require('mason-lspconfig').setup({
     'tinymist',
     'pyright',
     'html',
-    'gopls'
+    'gopls',
+    'clangd',
   },
   handlers = {
     function(server)
