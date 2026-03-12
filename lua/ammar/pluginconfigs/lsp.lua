@@ -44,6 +44,7 @@ require('mason-lspconfig').setup({
     'html',
     'gopls',
     'clangd',
+    'arduino_language_server',
   },
   handlers = {
     function(server)
